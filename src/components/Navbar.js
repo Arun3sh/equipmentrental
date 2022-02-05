@@ -3,8 +3,11 @@ import { Button, Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HashLink } from 'react-router-hash-link';
+import { useContext } from 'react';
+import { authContext } from './../App';
 
 function Navitem() {
+	const { login, setLogin } = useContext(authContext);
 	return (
 		<Navbar bg="light" expand="sm">
 			<Container className="navbar-container">
@@ -43,13 +46,24 @@ function Navitem() {
 							</Link>
 						</NavDropdown>
 					</Nav>
-					<Link className="nav-link login-link" to="/login">
-						Login
-					</Link>
-					<Button variant="outlined">Sign up</Button>
-					<Badge color="primary" badgeContent={4}>
-						<ShoppingCartIcon />{' '}
-					</Badge>
+					{!login && (
+						<Link className="nav-link login-link" to="/" onClick={() => setLogin(true)}>
+							Login
+						</Link>
+					)}
+
+					{login && (
+						<Link className="nav-link logout-link" to="/" onClick={() => setLogin(false)}>
+							Logout
+						</Link>
+					)}
+
+					{!login && <Button variant="outlined">Sign up</Button>}
+					{login && (
+						<Badge color="primary" badgeContent={4}>
+							<ShoppingCartIcon />{' '}
+						</Badge>
+					)}
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

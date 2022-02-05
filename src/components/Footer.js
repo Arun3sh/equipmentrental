@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { HashLink } from 'react-router-hash-link';
 import { AiOutlineInstagram } from 'react-icons/ai';
 
@@ -40,6 +40,7 @@ function Footer() {
 						variant="outlined"
 						label="Detailed Enquiry"
 					/>
+					<Button variant="outlined">Submit</Button>
 				</div>
 			</div>
 			<div className="copyright">Copyright © 2022 Aruneshwaran</div>
