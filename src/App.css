@@ -1,6 +1,8 @@
 /* Variables */
 :root {
-	--primary: #f3c318;
+	--primary: #ffd701;
+	--secondary: #2a73b9;
+	--black: #0a0a0a;
 }
 
 /* Reset */
@@ -9,15 +11,138 @@ p,
 a,
 ul,
 li {
+	font-family: Poppins;
 	margin: 0;
 	padding: 0;
+	color: black;
 }
+p {
+	line-height: 1.8rem;
+}
+a {
+	text-decoration: none;
+}
+/* font style */
 
 /* Base style */
 
 .login-link {
 	margin-left: auto;
 }
-.homepage-wrapper {
+.homepage-wrapper,
+footer {
 	margin: 16px;
+}
+
+/* Homepage */
+.homepage-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.app-vision {
+	height: 300px;
+	background-color: var(--primary);
+	color: var(--secondary);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.about-us {
+	display: flex;
+	flex-direction: row;
+}
+.about-mission {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+	padding: 10px;
+}
+.about-illustration {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+.about-illustration img {
+	width: 350px;
+	object-fit: contain;
+}
+.solution {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+/* Footer */
+.footer-wrapper {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background-color: var(--primary);
+}
+.footer-wrapper-content {
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.footer-heading {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--secondary);
+}
+.footer-solution,
+.footer-company,
+.footer-contactus {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 30%;
+}
+.footer-solution a,
+.footer-company p,
+.footer-company a,
+.footer-contactus a,
+.copyright {
+	color: var(--secondary);
+}
+.copyright {
+	text-align: center;
+	padding: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 640px) {
+	.about-us {
+		flex-direction: column;
+	}
+	.about-mission {
+		width: 100%;
+	}
+	.about-illustration {
+		width: 100%;
+	}
+	.about-illustration img {
+		width: 200px;
+	}
+	.footer-wrapper {
+		box-shadow: 0px 0px 5px;
+		border-radius: 5px;
+	}
+	.footer-wrapper-content {
+		flex-direction: column;
+		gap: 20px;
+	}
+	.footer-solution,
+	.footer-company,
+	.footer-contactus {
+		width: 100%;
+		gap: 10px;
+		padding: 10px;
+		/* border-radius: 5px;
+		box-shadow: 0px 0px 5px; */
+	}
 }

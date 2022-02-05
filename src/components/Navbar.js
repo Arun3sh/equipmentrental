@@ -2,6 +2,7 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Button, Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { HashLink } from 'react-router-hash-link';
 
 function Navitem() {
 	return (
@@ -14,6 +15,13 @@ function Navitem() {
 						<Link className="nav-link" to="/">
 							Home
 						</Link>
+						<HashLink className="nav-link" to="/#about">
+							About
+						</HashLink>
+						<HashLink className="nav-link" to="/#solution">
+							Solution
+						</HashLink>
+
 						<Link className="nav-link" to="/product">
 							Products
 						</Link>
@@ -21,18 +29,21 @@ function Navitem() {
 							<Link className="dropdown-item" to="/electronics">
 								Electronics
 							</Link>
+							<Link className="dropdown-item" to="/vehicles">
+								Vehicles
+							</Link>
 							<Link className="dropdown-item" to="/clothes">
 								Clothes
 							</Link>
-							<Link className="dropdown-item" to="/toys">
-								Toys
+							<Link className="dropdown-item" to="/gaming">
+								Gaming
 							</Link>
-							<Link className="dropdown-item" to="/hs">
-								Household Stationary
+							<Link className="dropdown-item" to="/photography">
+								Photography
 							</Link>
 						</NavDropdown>
 					</Nav>
-					<Link className="nav-link login-link" to="/product">
+					<Link className="nav-link login-link" to="/login">
 						Login
 					</Link>
 					<Button variant="outlined">Sign up</Button>
