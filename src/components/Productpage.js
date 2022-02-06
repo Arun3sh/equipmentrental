@@ -11,6 +11,9 @@ function Productpage() {
 	if (query !== '' || query !== ' ' || query !== null || query !== undefined) {
 		newApi = `${API}/products/?name=${query}`;
 	}
+	if (query === '') {
+		newApi = `${API}/products`;
+	}
 	const getProducts = () => {
 		fetch(`${newApi}`, {
 			method: 'GET',

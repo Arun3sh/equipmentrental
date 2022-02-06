@@ -10,27 +10,28 @@ import { API } from './../assets/global';
 async function loginUser(credentials) {
 	return fetch(`${API}/users/login`, {
 		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
 		body: JSON.stringify(credentials),
+		headers: {
+			'Content-type': 'application/json',
+		},
 	}).then((data) => data.json());
 }
 
 function Login() {
 	const history = useHistory();
 	const { login, setLogin, setLoginPage } = useContext(authContext);
-	const [name, setName] = useState(null);
+	const [username, setUserName] = useState(null);
 	const [password, setPassword] = useState(null);
 	const [token, setToken] = useState(null);
 
 	const checkUser = async () => {
 		// const token = await loginUser({
-		// 	name,
+		// 	username,
 		// 	password,
 		// });
-		// console.log(token);
+
 		// setToken(token);
+		// console.log(token);
 		setLogin(true);
 		setLoginPage(false);
 		history.push('/');
@@ -54,7 +55,7 @@ function Login() {
 						variant="outlined"
 						className="email-textfield"
 						label="Enter User Name"
-						onChange={(e) => setName(e.target.value)}
+						onChange={(e) => setUserName(e.target.value)}
 					/>
 				</div>
 				<div className="password-container">

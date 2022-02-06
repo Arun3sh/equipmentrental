@@ -82,7 +82,11 @@ function Navitem() {
 						</Link>
 					)}
 
-					{!login && <Button variant="outlined">Sign up</Button>}
+					{!login && (
+						<Button variant="outlined" onClick={() => history.push('/register')}>
+							Sign up
+						</Button>
+					)}
 					{login && (
 						<Badge color="primary" badgeContent={cart}>
 							<ShoppingCartIcon />{' '}
