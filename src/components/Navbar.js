@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { authContext } from './../App';
 
 function Navitem() {
-	const { login, setLogin } = useContext(authContext);
+	const { login, setLogin, setLoginPage, cart } = useContext(authContext);
 	return (
 		<Navbar bg="light" expand="sm">
 			<Container className="navbar-container">
@@ -25,7 +25,7 @@ function Navitem() {
 							Solution
 						</HashLink>
 
-						<Link className="nav-link" to="/product">
+						<Link className="nav-link" to="/products">
 							Products
 						</Link>
 						<NavDropdown title="Category" id="basic-nav-dropdown">
@@ -47,20 +47,20 @@ function Navitem() {
 						</NavDropdown>
 					</Nav>
 					{!login && (
-						<Link className="nav-link login-link" to="/" onClick={() => setLogin(true)}>
+						<Link className="nav-link login-link" to="/login" onClick={() => setLoginPage(true)}>
 							Login
 						</Link>
 					)}
 
 					{login && (
-						<Link className="nav-link logout-link" to="/" onClick={() => setLogin(false)}>
+						<Link className="nav-link logout-link" onClick={() => setLogin(false)}>
 							Logout
 						</Link>
 					)}
 
 					{!login && <Button variant="outlined">Sign up</Button>}
 					{login && (
-						<Badge color="primary" badgeContent={4}>
+						<Badge color="primary" badgeContent={cart}>
 							<ShoppingCartIcon />{' '}
 						</Badge>
 					)}
