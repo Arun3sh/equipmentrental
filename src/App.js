@@ -23,6 +23,8 @@ function App() {
 	const [login, setLogin] = useState(false);
 	const [loginPage, setLoginPage] = useState(false);
 	const [cart, setCart] = useState(0);
+	const [query, setQuery] = useState('');
+
 	const modes = {
 		login: login,
 		setLogin: setLogin,
@@ -30,8 +32,10 @@ function App() {
 		setLoginPage: setLoginPage,
 		cart: cart,
 		setCart: setCart,
+		query: query,
+		setQuery: setQuery,
 	};
-	console.log(loginPage);
+
 	if (loginPage) {
 		{
 			console.log('loginpage');

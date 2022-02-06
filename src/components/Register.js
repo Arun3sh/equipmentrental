@@ -45,8 +45,8 @@ export function Register() {
 	return (
 		<div className="register-wrapper">
 			<h3>Create an Account</h3>
-			onSubmit={handleSubmit}
-			<form className="registeruser-form" autoComplete="off">
+
+			<form className="registeruser-form" onSubmit={handleSubmit} autoComplete="off">
 				<TextField
 					id="outlined-basic"
 					name="name"

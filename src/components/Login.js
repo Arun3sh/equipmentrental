@@ -7,29 +7,33 @@ import { authContext } from './../App';
 import { useState } from 'react';
 import { API } from './../assets/global';
 
+async function loginUser(credentials) {
+	return fetch(`${API}/users/login`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(credentials),
+	}).then((data) => data.json());
+}
+
 function Login() {
 	const history = useHistory();
 	const { login, setLogin, setLoginPage } = useContext(authContext);
 	const [name, setName] = useState(null);
-	const [passkey, setPasskey] = useState(null);
+	const [password, setPassword] = useState(null);
+	const [token, setToken] = useState(null);
 
-	const confirmLogin = () => {
-		setLoginPage(false);
+	const checkUser = async () => {
+		// const token = await loginUser({
+		// 	name,
+		// 	password,
+		// });
+		// console.log(token);
+		// setToken(token);
 		setLogin(true);
-
-		let loginData = { username: name, password: passkey };
-		// Function to check user name and password
-
-		fetch(`${API}/users/login`, {
-			method: 'POST',
-			body: JSON.stringify(loginData),
-			headers: { 'Content-type': 'application/json' },
-		})
-			.then((data) => data.json())
-			.then((e) => console.log(e));
-
+		setLoginPage(false);
 		history.push('/');
-		// history.goBack();
 	};
 
 	return (
@@ -50,7 +54,7 @@ function Login() {
 						variant="outlined"
 						className="email-textfield"
 						label="Enter User Name"
-						// onChange={(e) => setUserName(e.target.value)}
+						onChange={(e) => setName(e.target.value)}
 					/>
 				</div>
 				<div className="password-container">
@@ -60,8 +64,8 @@ function Login() {
 						className="password-textfield"
 						type="password"
 						label="Enter Password"
-						onChange={(e) => setPasskey(e.target.value)}
-						onKeyPress={(e) => e.key === 'Enter' && confirmLogin()}
+						onChange={(e) => setPassword(e.target.value)}
+						onKeyPress={(e) => e.key === 'Enter' && checkUser()}
 					/>
 				</div>
 				<div className="login-btn-container">
@@ -70,7 +74,7 @@ function Login() {
 							Forgot Password?
 						</Link>
 					</div>
-					<Button variant="outlined" onClick={confirmLogin}>
+					<Button variant="outlined" onClick={checkUser}>
 						LOGIN
 					</Button>
 					<div className="register-yet">

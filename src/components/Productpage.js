@@ -1,11 +1,18 @@
 import { API } from './../assets/global';
 import { useEffect, useState } from 'react';
 import Productcard from './Productcard';
+import { useContext } from 'react';
+import { authContext } from './../App';
 
 function Productpage() {
+	const { query } = useContext(authContext);
 	const [products, setProducts] = useState([]);
+	let newApi = `${API}/products`;
+	if (query !== '' || query !== ' ' || query !== null || query !== undefined) {
+		newApi = `${API}/products/?name=${query}`;
+	}
 	const getProducts = () => {
-		fetch(`${API}/products`, {
+		fetch(`${newApi}`, {
 			method: 'GET',
 		})
 			.then((data) => data.json())

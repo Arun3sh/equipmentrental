@@ -1,0 +1,284 @@
+[
+	{
+		"id": 401,
+		"name": "Play Station 5",
+		"category": "gaming",
+		"chargeperhour": "20",
+		"img": "https://www.cnet.com/a/img/bxZ58tCQe2YqIlfZHf9MCbxaqRc=/940x0/2021/03/08/b3cb8ee9-8eca-4097-a50f-7224e51b2afe/ps5-playstation-5-sony-hoyle-promo-11.jpg"
+	},
+	{
+		"id": 402,
+		"name": "Gaming Table",
+		"category": "gaming",
+		"chargeperhour": "50",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1KPpBFLu23aQU9GDYIE70K2GWaBhqUZ1PoZj2vxRwZmKArnSuP3yHhZwgE-YcdwAFgD8&usqp=CAU"
+	},
+	{
+		"id": 403,
+		"name": "Gaming Table",
+		"category": "gaming",
+		"chargeperhour": "35",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdCMyo43e28skcj4UZ2rxtKo2CXJ93bcLx3w&usqp=CAU"
+	},
+	{
+		"id": 404,
+		"name": "Gaming Table",
+		"category": "gaming",
+		"chargeperhour": "45",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWObo763azb0KP5mXlMItypyLa5LuRvmgqow&usqp=CAU"
+	},
+	{
+		"id": 405,
+		"name": "Curved Monitor - Alienware",
+		"category": "gaming",
+		"chargeperhour": "25",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo5n66RG6yxWUkxgD3ID2UXVvz5JJncMSIYQ&usqp=CAU"
+	},
+	{
+		"id": 406,
+		"name": "Curved Monitor - Samsung",
+		"category": "gaming",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1EX0BjFFHX6V12uXT06k8hSz4fHRQ98z05A&usqp=CAU"
+	},
+	{
+		"id": 407,
+		"name": "Keyboard & Mouse",
+		"category": "gaming",
+		"chargeperhour": "5",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQIJFkbXC5vbCaxgNLUUlfIGRwtzfUGKbk7Q&usqp=CAU"
+	},
+	{
+		"id": 408,
+		"name": "Keyboard & Mouse",
+		"category": "gaming",
+		"chargeperhour": "15",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiO3493N5Z7tnDE-2COBTpIoOIiahQx0LG0w&usqp=CAU"
+	},
+	{
+		"id": 409,
+		"name": "Headset - ASUS",
+		"category": "gaming",
+		"chargeperhour": "25",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6DGBPQcm2xCjAGd9MGX-IqPur5drJxrIkVw&usqp=CAU"
+	},
+	{
+		"id": 410,
+		"name": "Headset - Jbl",
+		"category": "gaming",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlY1W4eTya95dk0019F25RZeQyPkCvXzI96A&usqp=CAU"
+	},
+
+	{
+		"id": 501,
+		"name": "Light set adjustable - 3",
+		"category": "photography",
+		"chargeperhour": "140",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw4lJRkAYVWIL2PYSHIHJQ4s80ObvwAqk5BQ&usqp=CAU"
+	},
+	{
+		"id": 502,
+		"name": "Light set adjustable",
+		"category": "photography",
+		"chargeperhour": "80",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg9h6_dBDUFnSRGdxxNHlotS77wZJH-VdBOA&usqp=CAU"
+	},
+	{
+		"id": 503,
+		"name": "Ring Light Stand",
+		"category": "photography",
+		"chargeperhour": "50",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScXTgvRrRoFsuhAi0W9IvntACqYZ2xUAVnLQ&usqp=CAU"
+	},
+	{
+		"id": 504,
+		"name": "Ring Light Stand",
+		"category": "photography",
+		"chargeperhour": "50",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWObo763azb0KP5mXlMItypyLa5LuRvmgqow&usqp=CAU"
+	},
+	{
+		"id": 505,
+		"name": "Wood Backdrop",
+		"category": "photography",
+		"chargeperhour": "10",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ34bzn8wDrBKTZbtunhwNSPJb3w7Zb7bdwdg&usqp=CAU"
+	},
+	{
+		"id": 506,
+		"name": "Vinyl flower backdrop",
+		"category": "photography",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXWv78xX-dG1yeS87TYNk9u3zrgqvan1HAMg&usqp=CAU"
+	},
+	{
+		"id": 507,
+		"name": "Dark backdrop",
+		"category": "photography",
+		"chargeperhour": "10",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5DyJB0bFJgtdSz2UnqTpxEToZgZOoIE0snQ&usqp=CAU"
+	},
+	{
+		"id": 508,
+		"name": "Puzzled backdrop",
+		"category": "photography",
+		"chargeperhour": "15",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSzefW_SnN9vRMwLZXb69tm3AJEsUy8jsfgg&usqp=CAU"
+	},
+	{
+		"id": 509,
+		"name": "Tripod",
+		"category": "photography",
+		"chargeperhour": "10",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5pntGmx0M0wMiaOvVb0cQJ_AAY_mktMxQtw&usqp=CAU"
+	},
+	{
+		"id": 510,
+		"name": "Tripod",
+		"category": "photography",
+		"chargeperhour": "15",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglqtnplfhs4RsNKuK60FgnaB8gBZDKoNHcw&usqp=CAU"
+	},
+
+	{
+		"id": 201,
+		"name": "Excavator",
+		"category": "vehicle",
+		"chargeperhour": "150",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2O8fiX_2eZ6jDEHUnwW7S_byHexnD2_2OJA&usqp=CAU"
+	},
+	{
+		"id": 202,
+		"name": "Excavator JCB",
+		"category": "vehicle",
+		"chargeperhour": "180",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisIbNy31QTv-OWp3RgdHRqkYP5qAZeXsJcw&usqp=CAU"
+	},
+	{
+		"id": 203,
+		"name": "Backhoe Loader",
+		"category": "vehicle",
+		"chargeperhour": "200",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB43Qn-Rwpqzp4IonezzzQJHeiq8lVw9C7KQ&usqp=CAU"
+	},
+	{
+		"id": 204,
+		"name": "Backhoe Loader JX 220",
+		"category": "vehicle",
+		"chargeperhour": "220",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPnvpyE22_zSb8TK36SYj0fkjyfHg1WxvUHQ&usqp=CAU"
+	},
+	{
+		"id": 205,
+		"name": "Excavator with piling rig",
+		"category": "vehicle",
+		"chargeperhour": "250",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8s0PimGW4xUJW5d7MI837vwKWtbzQ11yPIQ&usqp=CAU"
+	},
+	{
+		"id": 206,
+		"name": "Backhoe Loader JX 210",
+		"category": "vehicle",
+		"chargeperhour": "180",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPnvpyE22_zSb8TK36SYj0fkjyfHg1WxvUHQ&usqp=CAU"
+	},
+	{
+		"id": 101,
+		"name": "Kaspersky Router",
+		"category": "electronics",
+		"chargeperhour": "10",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1-diCghduc8-PguWd7pK0aG3gYbKAf5VFRw&usqp=CAU"
+	},
+	{
+		"id": 102,
+		"name": "Redmi Mobile",
+		"category": "electronics",
+		"chargeperhour": "75",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSttViteEkQHTCUaav2VOD-JpHOwqUVhgobGw&usqp=CAU"
+	},
+	{
+		"id": 103,
+		"name": "Mercury Router",
+		"category": "electronics",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZjSjTMt75rlMAAyXLoeAfu9-Oq8P5IsMSkw&usqp=CAU"
+	},
+	{
+		"id": 104,
+		"name": "Gaming Router",
+		"category": "electronics",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHLCB4xFcD4IU6cbnSPDK6S9HKWzqnK31Bog&usqp=CAU"
+	},
+	{
+		"id": 105,
+		"name": "Mini Fridge",
+		"category": "electronics",
+		"chargeperhour": "50",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwXxDoF5LanMdKVBKAguhPfxqAAOqu7h3t9g&usqp=CAU"
+	},
+	{
+		"id": 106,
+		"name": "Mini Fridge",
+		"category": "electronics",
+		"chargeperhour": "75",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-FcLMyGJwWje5LX1s51HkjvuQcPBXJ5UBdg&usqp=CAU"
+	},
+	{
+		"id": 107,
+		"name": "Portable Mini Fridge",
+		"category": "electronics",
+		"chargeperhour": "25",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYY3qFOR7aVl3nJicgMXnYzFXL6n-MqNfsYg&usqp=CAU"
+	},
+	{
+		"id": 301,
+		"name": "Dark Hallowen Costume",
+		"category": "clothes",
+		"chargeperhour": "25",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1gNBWoRZbJxiioDH-XFPQyuhsqFqFVgNlCA&usqp=CAU"
+	},
+	{
+		"id": 302,
+		"name": "Cat Women Hallowen Costume",
+		"category": "clothes",
+		"chargeperhour": "10",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ9FQlza3BnIjRMJ2H0nOvVgpLEaFgQMveBg&usqp=CAU"
+	},
+	{
+		"id": 303,
+		"name": "Scary Joker Hallowen Costume",
+		"category": "clothes",
+		"chargeperhour": "40",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJKu-ZcthcKFVym9mfftwm9QiAs1ySCU_r6Q&usqp=CAU"
+	},
+	{
+		"id": 304,
+		"name": "Burgundy Suit",
+		"category": "clothes",
+		"chargeperhour": "30",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlIzv9rsWheL2N-N14l5q46h1tI1OoO_Q4LQ&usqp=CAU"
+	},
+	{
+		"id": 305,
+		"name": "Blue Brides man suit",
+		"category": "clothes",
+		"chargeperhour": "40",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKn3LwqHPAJ9Gx4JQJieC3H5j26cGLyyHJFA&usqp=CAU"
+	},
+	{
+		"id": 306,
+		"name": "Kids Wedding suit",
+		"category": "clothes",
+		"chargeperhour": "20",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWfJMTHDV9BgGCVrUYg2t_VHwQI--4_7tT8g&usqp=CAU"
+	},
+	{
+		"id": 307,
+		"name": "Bride & Groom Set",
+		"category": "clothes",
+		"chargeperhour": "80",
+		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPR-M9FfUIWiF1v6tCL1yJi1O_k3K3wE4ENQ&usqp=CAU"
+	}
+]

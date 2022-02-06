@@ -1,13 +1,21 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { Button, Badge } from '@mui/material';
+import { Button, Badge, TextField } from '@mui/material';
+import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HashLink } from 'react-router-hash-link';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { authContext } from './../App';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Navitem() {
-	const { login, setLogin, setLoginPage, cart } = useContext(authContext);
+	const { login, setLogin, setLoginPage, cart, query, setQuery } = useContext(authContext);
+
+	const history = useHistory();
+	const passQuery = () => {
+		console.log(query);
+		history.push('/products');
+	};
 	return (
 		<Navbar bg="light" expand="sm">
 			<Container className="navbar-container">
@@ -46,6 +54,22 @@ function Navitem() {
 							</Link>
 						</NavDropdown>
 					</Nav>
+
+					{/* Seacrh Feature */}
+					<div className="search-bar">
+						<TextField
+							id="outlined-basic"
+							placeholder="Search rentables here..."
+							variant="outlined"
+							className="text-field"
+							onChange={(e) => setQuery(`${e.target.value}`)}
+							onKeyPress={(e) => e.key === 'Enter' && passQuery()}
+						/>
+						<Button className="search-button" onClick={passQuery}>
+							<FaSearch className="search-icon" color="primary" onClick={passQuery} />
+						</Button>
+					</div>
+
 					{!login && (
 						<Link className="nav-link login-link" to="/login" onClick={() => setLoginPage(true)}>
 							Login
