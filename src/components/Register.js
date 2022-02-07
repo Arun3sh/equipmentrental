@@ -8,16 +8,22 @@ export function Register() {
 	const history = useHistory();
 
 	const register = () => {
-		// To make sure same user name are not taken
+		// To make sure same user exists
 		fetch(`${API}/users/signup`, {
 			method: 'POST',
 			body: JSON.stringify(values),
 			headers: { 'Content-type': 'application/json' },
+		}).then((res) => {
+			if (res.ok) {
+				history.push('/login');
+			} else {
+				alert('user email already exists! try forgot password');
+			}
 		});
 	};
 
 	const formValidationSchema = yup.object({
-		name: yup.string().min(4).required('please enter a unique user name'),
+		username: yup.string().min(4).required('please enter a unique user name'),
 		email: yup.string().email().required('email id is required'),
 		password: yup
 			.string()
@@ -32,9 +38,9 @@ export function Register() {
 			.required('Please confirm the password')
 			.oneOf([yup.ref('password')], 'Passwords do not match'),
 	});
-	const { values, handleBlur, handleChange, handleSubmit, errors, touched, resetForm } = useFormik({
+	const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
 		initialValues: {
-			name: '',
+			username: '',
 			email: '',
 			password: '',
 			cpassword: '',
@@ -48,16 +54,16 @@ export function Register() {
 
 			<form className="registeruser-form" onSubmit={handleSubmit} autoComplete="off">
 				<TextField
-					id="outlined-basic"
-					name="name"
-					value={values.name}
+					id="username"
+					name="username"
+					value={values.username}
 					label="User Name"
 					variant="outlined"
 					style={{ width: '40vh' }}
 					onChange={handleChange}
 					onBlur={handleBlur}
-					error={errors.name && touched.name}
-					helperText={errors.name && touched.name ? errors.name : ''}
+					error={errors.username && touched.username}
+					helperText={errors.username && touched.username ? errors.username : ''}
 				/>
 				<TextField
 					id="outlined-basic"

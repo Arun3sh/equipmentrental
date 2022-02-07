@@ -7,34 +7,33 @@ import { authContext } from './../App';
 import { useState } from 'react';
 import { API } from './../assets/global';
 
-async function loginUser(credentials) {
-	return fetch(`${API}/users/login`, {
-		method: 'POST',
-		body: JSON.stringify(credentials),
-		headers: {
-			'Content-type': 'application/json',
-		},
-	}).then((data) => data.json());
-}
-
 function Login() {
 	const history = useHistory();
-	const { login, setLogin, setLoginPage } = useContext(authContext);
+	const { setLogin, setLoginPage } = useContext(authContext);
 	const [username, setUserName] = useState(null);
 	const [password, setPassword] = useState(null);
-	const [token, setToken] = useState(null);
 
 	const checkUser = async () => {
-		// const token = await loginUser({
-		// 	username,
-		// 	password,
-		// });
-
-		// setToken(token);
-		// console.log(token);
-		setLogin(true);
-		setLoginPage(false);
-		history.push('/');
+		await fetch(`${API}/users/login`, {
+			method: 'POST',
+			body: JSON.stringify({
+				username,
+				password,
+			}),
+			headers: {
+				'Content-type': 'application/json',
+			},
+		})
+			.then((data) => data.json())
+			.then((userToken) => {
+				localStorage.setItem('token', userToken.token);
+				setLogin(true);
+				setLoginPage(false);
+				history.push('/');
+			})
+			.catch(() => {
+				alert('user name / email invalid');
+			});
 	};
 
 	return (

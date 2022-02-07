@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HashLink } from 'react-router-hash-link';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { authContext } from './../App';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -77,7 +77,10 @@ function Navitem() {
 					)}
 
 					{login && (
-						<Link className="nav-link logout-link" onClick={() => setLogin(false)}>
+						<Link
+							className="nav-link logout-link"
+							onClick={() => setLogin(false) & localStorage.clear()}
+						>
 							Logout
 						</Link>
 					)}
