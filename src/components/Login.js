@@ -50,7 +50,10 @@ function Login() {
 				</div>
 				<div className="email-container">
 					<TextField
-						id="outlined-basic"
+						id="username"
+						name="username"
+						autoComplete="off"
+						autoFocus={true}
 						variant="outlined"
 						className="email-textfield"
 						label="Enter User Name"
@@ -59,7 +62,8 @@ function Login() {
 				</div>
 				<div className="password-container">
 					<TextField
-						id="outlined-basic"
+						id="password"
+						name="password"
 						variant="outlined"
 						className="password-textfield"
 						type="password"

@@ -78,7 +78,7 @@ export function Register() {
 					helperText={errors.email && touched.email ? errors.email : ''}
 				/>
 				<TextField
-					id="outlined-basic"
+					id="password"
 					name="password"
 					value={values.password}
 					type="password"
@@ -91,7 +91,7 @@ export function Register() {
 					helperText={errors.password && touched.password ? errors.password : ''}
 				/>
 				<TextField
-					id="outlined-basic"
+					id="cpassword"
 					name="cpassword"
 					value={values.cpassword}
 					type="password"
