@@ -7,13 +7,13 @@ import { authContext } from './../App';
 function Productpage() {
 	const { query } = useContext(authContext);
 	const [products, setProducts] = useState([]);
+
 	let newApi = `${API}/products`;
-	if (query !== '' || query !== ' ' || query !== null || query !== undefined) {
+
+	if (query.length > 1) {
 		newApi = `${API}/products/?name=${query}`;
 	}
-	if (query === '') {
-		newApi = `${API}/products`;
-	}
+
 	const getProducts = () => {
 		fetch(`${newApi}`, {
 			method: 'GET',
@@ -21,7 +21,9 @@ function Productpage() {
 			.then((data) => data.json())
 			.then((p) => setProducts(p));
 	};
-	useEffect(getProducts, []);
+	// To call getproducts whenever there is a change in the api based on user input
+	useEffect(getProducts, [newApi]);
+
 	return (
 		<section className="all-products-wrapper">
 			{products.map(({ _id, name, chargeperhour, img }) => (

@@ -12,9 +12,15 @@ function Navitem() {
 	const { login, setLogin, setLoginPage, cart, query, setQuery } = useContext(authContext);
 
 	const history = useHistory();
-	const passQuery = () => {
-		console.log(query);
-		history.push('/products');
+	const passQuery = (e) => {
+		// To prevent from auto submitting
+		e.preventDefault();
+
+		// To capitalize first letter alone
+		let captilize = query.charAt(0).toUpperCase() + query.slice(1);
+		setQuery(captilize);
+
+		history.push(`/products`);
 	};
 	return (
 		<Navbar bg="light" expand="sm">
@@ -62,11 +68,12 @@ function Navitem() {
 							placeholder="Search rentables here..."
 							variant="outlined"
 							className="text-field"
-							onChange={(e) => setQuery(`${e.target.value}`)}
-							onKeyPress={(e) => e.key === 'Enter' && passQuery()}
+							autoComplete="off"
+							onChange={(e) => setQuery(e.target.value.toLowerCase())}
+							onKeyPress={(e) => e.key === 'Enter' && passQuery(e)}
 						/>
 						<Button className="search-button" onClick={passQuery}>
-							<FaSearch className="search-icon" color="primary" onClick={passQuery} />
+							<FaSearch className="search-icon" color="primary" />
 						</Button>
 					</div>
 

@@ -18,7 +18,6 @@ function Productcard({ name, chargeperhour, img }) {
 
 	// Add function to add cart quantity and to change the display of add to cart button
 	const add = () => {
-		console.log('Hello');
 		if (login) {
 			setCart(cart + 1);
 			setCartValue(cartValue + 1);
