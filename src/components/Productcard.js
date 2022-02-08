@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 function Productcard({ name, chargeperhour, img }) {
 	const history = useHistory();
 
-	const { login, cart, setCart, setLoginPage } = useContext(authContext);
+	const { login, cart, setCart } = useContext(authContext);
 
 	// To get the individual product quantity and to reduce quantity
 	const [cartValue, setCartValue] = useState(0);
@@ -23,8 +23,6 @@ function Productcard({ name, chargeperhour, img }) {
 			setCartValue(cartValue + 1);
 			setDisplay('added');
 		} else {
-			setLoginPage(true);
-
 			history.push('/login');
 		}
 	};

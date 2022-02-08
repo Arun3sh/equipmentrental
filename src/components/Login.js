@@ -9,7 +9,7 @@ import { API } from './../assets/global';
 
 function Login() {
 	const history = useHistory();
-	const { setLogin, setLoginPage } = useContext(authContext);
+	const { setLogin } = useContext(authContext);
 	const [username, setUserName] = useState(null);
 	const [password, setPassword] = useState(null);
 
@@ -28,7 +28,6 @@ function Login() {
 			.then((userToken) => {
 				localStorage.setItem('token', userToken.token);
 				setLogin(true);
-				setLoginPage(false);
 				history.push('/');
 			})
 			.catch(() => {

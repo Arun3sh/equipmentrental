@@ -6,10 +6,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HashLink } from 'react-router-hash-link';
 import { useContext } from 'react';
 import { authContext } from './../App';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 
 function Navitem() {
-	const { login, setLogin, setLoginPage, cart, query, setQuery } = useContext(authContext);
+	const { login, setLogin, cart, query, setQuery } = useContext(authContext);
 
 	const history = useHistory();
 	const passQuery = (e) => {
@@ -78,7 +78,7 @@ function Navitem() {
 					</div>
 
 					{!login && (
-						<Link className="nav-link login-link" to="/login" onClick={() => setLoginPage(true)}>
+						<Link className="nav-link login-link" to="/login">
 							Login
 						</Link>
 					)}
