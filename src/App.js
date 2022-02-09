@@ -23,6 +23,7 @@ function App() {
 	const [login, setLogin] = useState(false);
 	const [cart, setCart] = useState(0);
 	const [query, setQuery] = useState('');
+	const [isLoading, setIsLoading] = useState(true);
 
 	const location = useLocation();
 	const modes = {
@@ -32,6 +33,8 @@ function App() {
 		setCart: setCart,
 		query: query,
 		setQuery: setQuery,
+		isLoading: isLoading,
+		setIsLoading: setIsLoading,
 	};
 
 	return (
