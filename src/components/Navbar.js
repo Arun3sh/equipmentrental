@@ -1,27 +1,27 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { Button, Badge, TextField } from '@mui/material';
-import { FaSearch } from 'react-icons/fa';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import { Button, Badge, TextField, ListItem, ListItemText, Avatar } from '@mui/material';
+import { BiJoystick, BiCamera } from 'react-icons/bi';
+import { FaSearch, FaTruckMoving } from 'react-icons/fa';
+import { FcElectronics } from 'react-icons/fc';
+import { GiClothes } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HashLink } from 'react-router-hash-link';
 import { useContext } from 'react';
 import { authContext } from './../App';
 import { useHistory } from 'react-router-dom';
+import { yellow } from '@mui/material/colors';
 
 function Navitem() {
-	const { login, setLogin, cart, query, setQuery } = useContext(authContext);
+	const { login, setLogin, cart, setQuery } = useContext(authContext);
+	const cursorstyle = { cursor: 'pointer' };
 
 	const history = useHistory();
-	const passQuery = (e) => {
-		// To prevent from auto submitting
-		e.preventDefault();
-
-		// To capitalize first letter alone
-		let captilize = query.charAt(0).toUpperCase() + query.slice(1);
-		setQuery(captilize);
-
+	const passQuery = () => {
 		history.push(`/products`);
 	};
+
 	return (
 		<Navbar bg="light" expand="sm">
 			<Container className="navbar-container">
@@ -39,25 +39,75 @@ function Navitem() {
 							Solution
 						</HashLink>
 
-						<Link className="nav-link" to="/products">
+						<Link className="nav-link" to="/products" onClick={() => setQuery('')}>
 							Products
 						</Link>
+
 						<NavDropdown title="Category" id="basic-nav-dropdown">
-							<Link className="dropdown-item" to="/electronics">
-								Electronics
-							</Link>
-							<Link className="dropdown-item" to="/vehicles">
-								Vehicles
-							</Link>
-							<Link className="dropdown-item" to="/clothes">
-								Clothes
-							</Link>
-							<Link className="dropdown-item" to="/gaming">
-								Gaming
-							</Link>
-							<Link className="dropdown-item" to="/photography">
-								Photography
-							</Link>
+							{/* Vehicles */}
+							<ListItem
+								style={cursorstyle}
+								onClick={() => setQuery('?category=vehicle') & passQuery()}
+							>
+								<ListItemAvatar color="success">
+									<Avatar sx={{ bgcolor: yellow[600] }}>
+										<FaTruckMoving />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary="Vehicle" />
+							</ListItem>
+
+							{/* Electronics */}
+							<ListItem
+								style={cursorstyle}
+								onClick={() => setQuery('?category=electronics') & passQuery()}
+							>
+								<ListItemAvatar>
+									<Avatar sx={{ bgcolor: yellow[600] }}>
+										<FcElectronics />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary="Electronics" />
+							</ListItem>
+
+							{/* Gaming */}
+							<ListItem
+								style={cursorstyle}
+								onClick={() => setQuery('?category=gaming') & passQuery()}
+							>
+								<ListItemAvatar>
+									<Avatar sx={{ bgcolor: yellow[600] }}>
+										<BiJoystick />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary="Gaming" />
+							</ListItem>
+
+							{/* Photography */}
+							<ListItem
+								style={cursorstyle}
+								onClick={() => setQuery('?category=photography') & passQuery()}
+							>
+								<ListItemAvatar>
+									<Avatar sx={{ bgcolor: yellow[600] }}>
+										<BiCamera />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary="Photography" />
+							</ListItem>
+
+							{/* Clothes */}
+							<ListItem
+								style={cursorstyle}
+								onClick={() => setQuery('?category=clothes') & passQuery()}
+							>
+								<ListItemAvatar>
+									<Avatar sx={{ bgcolor: yellow[600] }}>
+										<GiClothes />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary="Clothes" />
+							</ListItem>
 						</NavDropdown>
 					</Nav>
 
@@ -69,8 +119,8 @@ function Navitem() {
 							variant="outlined"
 							className="text-field"
 							autoComplete="off"
-							onChange={(e) => setQuery(e.target.value.toLowerCase())}
-							onKeyPress={(e) => e.key === 'Enter' && passQuery(e)}
+							onChange={(e) => setQuery(`?name=${e.target.value}`)}
+							onKeyPress={(e) => e.key === 'Enter' && passQuery()}
 						/>
 						<Button className="search-button" onClick={passQuery}>
 							<FaSearch className="search-icon" color="primary" />
