@@ -13,7 +13,7 @@ function Productpage() {
 
 	if (query.length > 1) {
 		// setIsLoading(true);
-		newApi = `${API}/products/?name=${query}`;
+		newApi = `${API}/products/${query}`;
 	}
 
 	const getProducts = async () => {

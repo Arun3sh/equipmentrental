@@ -11,11 +11,6 @@ import Footer from './components/Footer';
 import Productpage from './components/Productpage';
 import Login from './components/Login';
 import { Register } from './components/Register';
-import Electronics from './components/Electronics';
-import Gaming from './components/Gaming';
-import Vehicle from './components/Vehicle';
-import Clothes from './components/Clothes';
-import Photography from './components/Photography';
 
 export const authContext = createContext(null);
 
@@ -54,21 +49,7 @@ function App() {
 					<Route path="/products">
 						<Productpage />
 					</Route>
-					<Route path="/electronics">
-						<Electronics />
-					</Route>
-					<Route path="/gaming">
-						<Gaming />
-					</Route>
-					<Route path="/vehicles">
-						<Vehicle />
-					</Route>
-					<Route path="/clothes">
-						<Clothes />
-					</Route>
-					<Route path="/photography">
-						<Photography />
-					</Route>
+
 					<Route path="/checkout">checkout</Route>
 				</Switch>
 				{location.pathname !== '/login' && location.pathname !== '/register' && <Footer />}
