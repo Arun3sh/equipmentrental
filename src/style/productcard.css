@@ -1,3 +1,24 @@
+/* Product page loading */
+.loading-wrapper {
+	display: flex;
+	align-items: center;
+}
+.loading-wrapper div {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.noitemfound-wrapper {
+	display: flex;
+	justify-content: center;
+}
+.noitemfound-wrapper img {
+	height: 500px;
+}
+
+/* Product Card */
+
 .all-products-wrapper {
 	display: flex;
 	gap: 20px;
@@ -48,4 +69,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* Media Queries */
+/* For Small Devices */
+@media screen and (max-width: 426px) {
+	.noitemfound-wrapper img {
+		width: 300px;
+		height: auto;
+	}
 }

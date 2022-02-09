@@ -36,3 +36,29 @@
 .row-illustration img {
 	width: 500px;
 }
+
+/* Small Device */
+@media screen and (max-width: 425px) {
+	.login-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+	.row-login {
+		width: 100%;
+	}
+	.row-illustration {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.row-illustration img {
+		width: 150px;
+	}
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) and (min-width: 426px) {
+	.row-illustration img {
+		width: 250px;
+	}
+}
