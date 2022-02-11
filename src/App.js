@@ -10,7 +10,8 @@ import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import Productpage from './components/Productpage';
 import Login from './components/Login';
-import { Register } from './components/Register';
+import Register from './components/Register';
+import Checkoutpage from './components/Checkoutpage';
 
 export const authContext = createContext(null);
 
@@ -50,7 +51,9 @@ function App() {
 						<Productpage />
 					</Route>
 
-					<Route path="/checkout">checkout</Route>
+					<Route path="/checkout">
+						<Checkoutpage />
+					</Route>
 				</Switch>
 				{location.pathname !== '/login' && location.pathname !== '/register' && <Footer />}
 			</div>
