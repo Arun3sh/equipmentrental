@@ -28,7 +28,8 @@ function Login() {
 			.then((userToken) => {
 				localStorage.setItem('token', userToken.token);
 				setLogin(true);
-				history.push('/');
+
+				history.goBack();
 			})
 			.catch(() => {
 				alert('user name / email invalid');

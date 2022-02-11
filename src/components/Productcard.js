@@ -59,8 +59,10 @@ function Productcard({ name, chargeperhour, img }) {
 					<span className="description">
 						Product description comes here to explain about the product.
 					</span>
-					<span className="price">₹{chargeperhour} for 7 hours</span>
+					<span className="price">₹{chargeperhour} per hour</span>
 				</Card.Text>
+
+				{/* <input type="date"></input> */}
 
 				<Button className="btn btn-primary to-cart" style={btnStyle} onClick={add}>
 					Add to Cart

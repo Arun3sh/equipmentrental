@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { API } from '../assets/global';
 
-export function Register() {
+function Register() {
 	const history = useHistory();
 
 	const register = () => {
@@ -116,4 +116,4 @@ export function Register() {
 	);
 }
 
-// export  Register;
+export default Register;
