@@ -70,8 +70,9 @@ function Checkoutcard() {
 				</Box>
 			</Box>
 
-			{/* Try passing the button from the Checkoutpage to use material style */}
-			<Button variant="outlined">Buy now</Button>
+			<Button className="btn btn-primary" variant="outlined">
+				Buy now
+			</Button>
 		</Card>
 	);
 }
