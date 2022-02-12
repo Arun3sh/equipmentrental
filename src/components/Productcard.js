@@ -4,11 +4,12 @@ import { ButtonGroup, Card } from 'react-bootstrap';
 import { useContext } from 'react';
 import { authContext } from './../App';
 import { useHistory } from 'react-router-dom';
+import { API } from './../assets/global';
 
-function Productcard({ name, chargeperhour, img }) {
+function Productcard({ id, name, chargeperhour, img }) {
 	const history = useHistory();
 
-	const { login, cart, setCart } = useContext(authContext);
+	const { login, cart, setCart, isAdmin } = useContext(authContext);
 
 	// To get the individual product quantity and to reduce quantity
 	const [cartValue, setCartValue] = useState(0);
@@ -46,9 +47,17 @@ function Productcard({ name, chargeperhour, img }) {
 		}
 	};
 
+	const deleteProduct = () => {
+		fetch(`${API}/products/${id}`, {
+			method: 'DELETE',
+			headers: { 'x-auth-token': ` ${localStorage.getItem('token')}` },
+		}).then(() => history.push('/'));
+	};
+
 	// Styles for displaying add to cart button and the button group
-	const btnGrpStyle = { display: display === 'added' ? 'flex' : 'none' };
-	const btnStyle = { display: display === 'added' ? 'none' : 'block' };
+	const btnGrpStyle = { display: isAdmin ? 'none' : display === 'added' ? 'flex' : 'none' };
+	const btnStyle = { display: isAdmin ? 'none' : display === 'added' ? 'none' : 'block' };
+	const crudstyle = { display: isAdmin ? 'flex' : 'none', justifyContent: 'space-around' };
 
 	return (
 		<Card className="shopping-card">
@@ -64,6 +73,7 @@ function Productcard({ name, chargeperhour, img }) {
 
 				{/* <input type="date"></input> */}
 
+				{/* {isLogin} */}
 				<Button className="btn btn-primary to-cart" style={btnStyle} onClick={add}>
 					Add to Cart
 				</Button>
@@ -76,6 +86,13 @@ function Productcard({ name, chargeperhour, img }) {
 						+
 					</Button>
 				</ButtonGroup>
+
+				<div className="crud-btn" style={crudstyle}>
+					<Button className="btn btn-primary edit">Edit</Button>
+					<Button className="btn btn-danger delete" onClick={deleteProduct}>
+						Delete
+					</Button>
+				</div>
 			</Card.Body>
 		</Card>
 	);

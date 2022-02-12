@@ -11,7 +11,7 @@ function Productpage() {
 
 	let newApi = `${API}/products`;
 
-	if (query.length > 1) {
+	if (query.length > 6) {
 		// setIsLoading(true);
 		newApi = `${API}/products/${query}`;
 	}
