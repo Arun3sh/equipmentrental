@@ -9,7 +9,7 @@ import { API } from './../assets/global';
 
 function Login() {
 	const history = useHistory();
-	const { setLogin } = useContext(authContext);
+	const { setLogin, setIsAdmin } = useContext(authContext);
 	const [username, setUserName] = useState(null);
 	const [password, setPassword] = useState(null);
 
@@ -28,7 +28,9 @@ function Login() {
 			.then((userToken) => {
 				localStorage.setItem('token', userToken.token);
 				setLogin(true);
-
+				if (username === 'admin') {
+					setIsAdmin(true);
+				}
 				history.goBack();
 			})
 			.catch(() => {

@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { yellow } from '@mui/material/colors';
 
 function Navitem() {
-	const { login, setLogin, cart, setQuery } = useContext(authContext);
+	const { login, setLogin, cart, setCart, setQuery, setIsAdmin } = useContext(authContext);
 	const cursorstyle = { cursor: 'pointer' };
 
 	const history = useHistory();
@@ -25,7 +25,13 @@ function Navitem() {
 	return (
 		<Navbar bg="light" expand="sm">
 			<Container className="navbar-container">
-				<Navbar.Brand href="#home">REAL</Navbar.Brand>
+				{/* Brand Name */}
+				<Navbar.Brand href="#home">
+					<Link className="nav-link" to="/">
+						REAL
+					</Link>
+				</Navbar.Brand>
+
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav>
@@ -136,7 +142,9 @@ function Navitem() {
 					{login && (
 						<Link
 							className="nav-link logout-link"
-							onClick={() => setLogin(false) & localStorage.clear()}
+							onClick={() =>
+								setLogin(false) & setCart(0) & setIsAdmin(false) & localStorage.clear()
+							}
 						>
 							Logout
 						</Link>
@@ -149,7 +157,7 @@ function Navitem() {
 					)}
 					{login && (
 						<Badge color="primary" badgeContent={cart}>
-							<ShoppingCartIcon />{' '}
+							<ShoppingCartIcon onClick={() => history.push('/checkout')} />{' '}
 						</Badge>
 					)}
 				</Navbar.Collapse>
