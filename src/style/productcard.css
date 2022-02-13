@@ -71,6 +71,21 @@
 	align-items: center;
 }
 
+/* Add Product */
+.addproducts-wrapper {
+	margin: 16px;
+}
+.myForm {
+	margin: 25px;
+	display: flex;
+	flex-direction: column;
+}
+.add-cancel {
+	margin: 25px;
+	display: flex;
+	justify-content: space-around;
+}
+
 /* Media Queries */
 /* For Small Devices */
 @media screen and (max-width: 426px) {

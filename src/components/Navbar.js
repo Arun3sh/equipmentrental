@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { yellow } from '@mui/material/colors';
 
 function Navitem() {
-	const { login, setLogin, cart, setCart, setQuery, setIsAdmin } = useContext(authContext);
+	const { login, setLogin, cart, setCart, setQuery, isAdmin, setIsAdmin } = useContext(authContext);
 	const cursorstyle = { cursor: 'pointer' };
 
 	const history = useHistory();
@@ -48,6 +48,12 @@ function Navitem() {
 						<Link className="nav-link" to="/products" onClick={() => setQuery('')}>
 							Products
 						</Link>
+
+						{isAdmin && (
+							<Link className="nav-link" to="/add-products">
+								Add Product
+							</Link>
+						)}
 
 						<NavDropdown title="Category" id="basic-nav-dropdown">
 							{/* Vehicles */}
