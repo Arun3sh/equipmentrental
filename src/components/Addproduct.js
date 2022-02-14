@@ -14,10 +14,13 @@ function Addproduct() {
 	};
 
 	const addProduct = (newProduct) => {
-		fetch(`${API}/products`, {
+		fetch(`${API}/products/add-product`, {
 			method: 'POST',
 			body: JSON.stringify(newProduct),
-			headers: { 'Content-type': 'application/json' },
+			headers: {
+				'Content-type': 'application/json',
+				'x-auth-token': ` ${localStorage.getItem('token')}`,
+			},
 		}).then(() => history.push('/products'));
 	};
 
@@ -33,14 +36,14 @@ function Addproduct() {
 			.number()
 			.positive('Value must be positive')
 			.transform((value) => (isNaN(value) ? undefined : value))
-			.max(3, 'Must be less than 3 characters')
+			.min(3, 'Must be less than 3 characters')
 			.required('Product price per hour is required'),
 		category: yup.string().required('Product category is required'),
 		quantity: yup
 			.number()
 			.positive('Value must be positive')
 			.transform((value) => (isNaN(value) ? undefined : value))
-			.max(3, 'Must be less than 3 characters')
+			.min(3, 'Must be less than 3 characters')
 			.required('Product quantity is required'),
 	});
 	const { errors, handleSubmit, handleBlur, handleChange, touched, values, resetForm } = useFormik({
