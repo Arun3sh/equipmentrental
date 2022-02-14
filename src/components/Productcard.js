@@ -47,6 +47,10 @@ function Productcard({ id, name, chargeperhour, img }) {
 		}
 	};
 
+	const toUpdate = () => {
+		history.push(`/edit-product/${id}`);
+	};
+
 	const deleteProduct = () => {
 		fetch(`${API}/products/${id}`, {
 			method: 'DELETE',
@@ -88,7 +92,9 @@ function Productcard({ id, name, chargeperhour, img }) {
 				</ButtonGroup>
 
 				<div className="crud-btn" style={crudstyle}>
-					<Button className="btn btn-primary edit">Edit</Button>
+					<Button className="btn btn-primary edit" onClick={toUpdate}>
+						Edit
+					</Button>
 					<Button className="btn btn-danger delete" onClick={deleteProduct}>
 						Delete
 					</Button>

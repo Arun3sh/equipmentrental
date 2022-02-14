@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Checkoutpage from './components/Checkoutpage';
 import Addproduct from './components/Addproduct';
+import Editproduct from './components/Editproduct';
 
 export const authContext = createContext(null);
 
@@ -60,6 +61,9 @@ function App() {
 					</Route>
 					<Route path="/add-products">
 						<Addproduct />
+					</Route>
+					<Route path="/edit-product/:id">
+						<Editproduct />
 					</Route>
 				</Switch>
 				{location.pathname !== '/login' && location.pathname !== '/register' && <Footer />}
