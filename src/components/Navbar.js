@@ -35,15 +35,20 @@ function Navitem() {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav>
-						<Link className="nav-link" to="/">
+						{/* <Link className="nav-link" to="/">
 							Home
-						</Link>
-						<HashLink className="nav-link" to="/#about">
-							About
-						</HashLink>
-						<HashLink className="nav-link" to="/#solution">
-							Solution
-						</HashLink>
+						</Link> */}
+						{!isAdmin && (
+							<HashLink className="nav-link" to="/#about">
+								About
+							</HashLink>
+						)}
+
+						{!isAdmin && (
+							<HashLink className="nav-link" to="/#solution">
+								Solution
+							</HashLink>
+						)}
 
 						<Link className="nav-link" to="/products" onClick={() => setQuery('')}>
 							Products
