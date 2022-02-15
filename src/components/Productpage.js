@@ -47,8 +47,15 @@ function Productpage() {
 	}
 	return (
 		<section className="all-products-wrapper">
-			{products.map(({ _id, name, chargeperhour, img }) => (
-				<Productcard id={_id} name={name} chargeperhour={chargeperhour} img={img} key={_id} />
+			{products.map(({ _id, name, chargeperhour, img, quantity }) => (
+				<Productcard
+					id={_id}
+					name={name}
+					chargeperhour={chargeperhour}
+					img={img}
+					quantity={quantity}
+					key={_id}
+				/>
 			))}
 		</section>
 	);

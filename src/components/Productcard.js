@@ -6,7 +6,7 @@ import { authContext } from './../App';
 import { useHistory } from 'react-router-dom';
 import { API } from './../assets/global';
 
-function Productcard({ id, name, chargeperhour, img }) {
+function Productcard({ id, name, chargeperhour, img, quantity }) {
 	const history = useHistory();
 
 	const { login, cart, setCart, isAdmin } = useContext(authContext);
@@ -59,9 +59,14 @@ function Productcard({ id, name, chargeperhour, img }) {
 	};
 
 	// Styles for displaying add to cart button and the button group
-	const btnGrpStyle = { display: isAdmin ? 'none' : display === 'added' ? 'flex' : 'none' };
-	const btnStyle = { display: isAdmin ? 'none' : display === 'added' ? 'none' : 'block' };
+	const btnGrpStyle = {
+		display: isAdmin ? 'none' : quantity === '0' ? 'none' : display === 'added' ? 'flex' : 'none',
+	};
+	const btnStyle = {
+		display: isAdmin ? 'none' : quantity === '0' ? 'none' : display === 'added' ? 'none' : 'block',
+	};
 	const crudstyle = { display: isAdmin ? 'flex' : 'none', justifyContent: 'space-around' };
+	const noItem = { display: isAdmin ? 'none' : quantity === '0' ? 'flex' : 'none' };
 
 	return (
 		<Card className="shopping-card">
@@ -90,6 +95,10 @@ function Productcard({ id, name, chargeperhour, img }) {
 						+
 					</Button>
 				</ButtonGroup>
+
+				<div className="no-item" style={noItem}>
+					<p>Sorry we're loading more item</p>
+				</div>
 
 				<div className="crud-btn" style={crudstyle}>
 					<Button className="btn btn-primary edit" onClick={toUpdate}>
