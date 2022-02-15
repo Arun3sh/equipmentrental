@@ -86,6 +86,21 @@
 	justify-content: space-around;
 }
 
+/* Edit Product */
+.editproducts-wrapper {
+	margin: 16px;
+}
+.myEditForm {
+	margin: 25px;
+	display: flex;
+	flex-direction: column;
+}
+.update-cancel {
+	margin: 25px;
+	display: flex;
+	justify-content: space-around;
+}
+
 /* Media Queries */
 /* For Small Devices */
 @media screen and (max-width: 426px) {

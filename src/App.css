@@ -74,6 +74,7 @@ footer {
 .custom-rental,
 .lease-rental {
 	display: flex;
+	gap: 2%;
 }
 
 .hour-rental-container,
@@ -89,14 +90,14 @@ footer {
 .lease-illustration {
 	display: flex;
 	justify-content: center;
-	width: 40%;
+	width: 38%;
 }
 .about-illustration img,
 .hour-illustration img,
 .week-illustration img,
 .custom-illustration img,
 .lease-illustration img {
-	width: 350px;
+	width: 325px;
 	object-fit: contain;
 }
 .solution {
