@@ -1,0 +1,24 @@
+/* UserList */
+.userlist-wrapper {
+	margin: 16px;
+	height: 50vh;
+}
+
+.list-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 16px;
+}
+.user-detail {
+	height: 70vh;
+	margin-top: 15px;
+}
+
+@media screen and (max-width: 425px) {
+	.list-wrapper {
+		flex-direction: column;
+		align-items: normal;
+		padding: 10px;
+	}
+}
