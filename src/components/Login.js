@@ -31,7 +31,7 @@ function Login() {
 				if (username === 'admin') {
 					setIsAdmin(true);
 				}
-				history.goBack();
+				history.push('/products');
 			})
 			.catch(() => {
 				alert('user name / email invalid');
