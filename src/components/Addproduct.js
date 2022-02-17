@@ -5,6 +5,12 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useHistory } from 'react-router';
 import { API } from './../assets/global';
+import { toast } from 'react-toastify';
+
+toast.configure({
+	autoClose: 3000,
+	draggable: false,
+});
 
 function Addproduct() {
 	const history = useHistory();
@@ -21,7 +27,10 @@ function Addproduct() {
 				'Content-type': 'application/json',
 				'x-auth-token': ` ${localStorage.getItem('token')}`,
 			},
-		}).then(() => history.push('/products'));
+		}).then(() => {
+			toast.success('Product Added');
+			history.push('/products');
+		});
 	};
 
 	const formValidationSchema = yup.object({

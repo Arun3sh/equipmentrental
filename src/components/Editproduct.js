@@ -7,6 +7,12 @@ import { useHistory } from 'react-router';
 import { API } from '../assets/global';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
+toast.configure({
+	autoClose: 3000,
+	draggable: false,
+});
 
 function Editproduct() {
 	const { id } = useParams();
@@ -39,7 +45,10 @@ function Toedit({ getEdited }) {
 				'Content-type': 'application/json',
 				'x-auth-token': ` ${localStorage.getItem('token')}`,
 			},
-		}).then(() => history.push('/products'));
+		}).then(() => {
+			toast.success('Product updated');
+			history.push('/products');
+		});
 	};
 
 	const formValidationSchema = yup.object({

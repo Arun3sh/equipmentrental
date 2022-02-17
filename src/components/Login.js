@@ -6,6 +6,9 @@ import { useContext } from 'react';
 import { authContext } from './../App';
 import { useState } from 'react';
 import { API } from './../assets/global';
+import { toast } from 'react-toastify';
+
+toast.configure();
 
 function Login() {
 	const history = useHistory();
@@ -31,10 +34,13 @@ function Login() {
 				if (username === 'admin') {
 					setIsAdmin(true);
 				}
+				toast.success('Loged in');
+				// <ToastContainer />;
 				history.push('/products');
 			})
 			.catch(() => {
-				alert('user name / email invalid');
+				toast.error('Invalid login attempt');
+				// alert('user name / email invalid');
 			});
 	};
 
