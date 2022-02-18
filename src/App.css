@@ -29,7 +29,7 @@ a {
 
 .login-link,
 .logout-link {
-	margin-left: auto;
+	margin-left: auto !important;
 }
 .homepage-wrapper,
 footer {
@@ -133,6 +133,12 @@ footer {
 	width: 80%;
 	border: 2px solid var(--secondary);
 	border-radius: 25px;
+}
+.cart-icon {
+	margin-left: 20px;
+}
+.cart-icon:hover {
+	cursor: pointer;
 }
 
 /* Footer */

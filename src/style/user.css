@@ -1,7 +1,7 @@
 /* UserList */
 .userlist-wrapper {
 	margin: 16px;
-	height: 50vh;
+	min-height: 50vh;
 }
 
 .list-wrapper {
