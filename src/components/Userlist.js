@@ -32,17 +32,14 @@ function Userlist() {
 }
 
 function Tolist({ username, email, orders, id }) {
-	console.log(orders.length);
-
 	return (
 		<div className="list-wrapper">
 			<p>Name: {username}</p>
 			<p>Email: {email}</p>
-			<p>Products Rented: {orders.length}</p>
+			<p>Products Rented: {orders !== undefined ? orders.length : '0'}</p>
 			<div className="view-userDetail">
 				<Button variant="outlined">
 					<Link to={`/users/${id}`}>View</Link>
-					{/* View{' '} */}
 				</Button>
 			</div>
 		</div>
