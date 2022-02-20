@@ -94,8 +94,8 @@ function Toedit({ getEdited }) {
 	});
 
 	return (
-		<div className="editproducts-wrapper">
-			<h1>Edit Product</h1>
+		<div className="container-sm editproducts-wrapper">
+			<h1 className="form-heading">Edit Product</h1>
 			<div className="editproducts">
 				<form className="myEditForm" onSubmit={handleSubmit} autoComplete="off">
 					<TextField

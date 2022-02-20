@@ -3,13 +3,10 @@ import Hourillu from './../assets/clock-illustration.jpg';
 import Weekillu from './../assets/weekly-illustration.jpg';
 import Customillu from './../assets/custom-illustration.jpg';
 import Leaseillu from './../assets/lease-illustration.jpg';
-// import { useContext } from 'react';
-// import {authContext} from './../App'
 
 function Homepage() {
-	// const { login, setLogin } = useContext(authContext);
 	return (
-		<div className="homepage-wrapper">
+		<div className="container-sm homepage-wrapper">
 			{/* App Vision */}
 			<div className="app-vision">
 				<h2 className="app-heading">REAL</h2>

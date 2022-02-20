@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { API } from './../assets/global';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
 function Userlist() {
 	const [users, setUsers] = useState([]);
-	const history = useHistory();
 
 	useEffect(() => {
 		fetch(`${API}/users`, {
@@ -19,8 +18,8 @@ function Userlist() {
 	}, []);
 
 	return (
-		<div className="userlist-wrapper">
-			<h3>All Users</h3>
+		<div className="container-sm userlist-wrapper">
+			<h3 className="form-heading">All Users</h3>
 
 			{users
 				.filter((e) => e.username !== 'admin')

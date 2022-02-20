@@ -33,7 +33,7 @@ function Navitem() {
 				</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
+				<Navbar.Collapse className="hamburger-menu" id="basic-navbar-nav">
 					<Nav>
 						{/* <Link className="nav-link" to="/">
 							Home
@@ -145,25 +145,29 @@ function Navitem() {
 					</div>
 
 					{!login && (
-						<Link className="nav-link login-link" to="/login">
+						<Link className="login-link" to="/login">
 							Login
 						</Link>
 					)}
 
 					{login && (
-						<Button variant="outlined" className="nav-link logout-link">
-							<Link
-								onClick={() =>
-									setLogin(false) & setCart(0) & setIsAdmin(false) & localStorage.clear()
-								}
-							>
-								Logout
-							</Link>
-						</Button>
+						<Link
+							to="#"
+							className="logout-link"
+							onClick={() =>
+								setLogin(false) & setCart(0) & setIsAdmin(false) & localStorage.clear()
+							}
+						>
+							Logout
+						</Link>
 					)}
 
 					{!login && (
-						<Button variant="outlined" onClick={() => history.push('/register')}>
+						<Button
+							className="cart-icon"
+							variant="outlined"
+							onClick={() => history.push('/register')}
+						>
 							Sign up
 						</Button>
 					)}

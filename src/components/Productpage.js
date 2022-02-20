@@ -29,7 +29,7 @@ function Productpage() {
 
 	if (isLoading) {
 		return (
-			<div className="loading-wrapper">
+			<div className="container-sm loading-wrapper">
 				<BallTriangle className="loading-content" color="#ffd701" height={80} width={80} />
 			</div>
 		);
@@ -37,7 +37,7 @@ function Productpage() {
 
 	if (products.length === 0) {
 		return (
-			<div className="noitemfound-wrapper">
+			<div className="container-sm noitemfound-wrapper">
 				<img
 					src="https://cdn.dribbble.com/users/1231865/screenshots/11157048/media/bc9427646c632ded563ee076fdc5dfda.jpg?compress=1&resize=400x300"
 					aria-label="no item found"
@@ -46,7 +46,7 @@ function Productpage() {
 		);
 	}
 	return (
-		<section className="all-products-wrapper">
+		<section className="container-sm all-products-wrapper">
 			{products.map(({ _id, name, chargeperhour, img, quantity }) => (
 				<Productcard
 					id={_id}

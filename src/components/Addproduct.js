@@ -67,8 +67,8 @@ function Addproduct() {
 	});
 
 	return (
-		<div className="addproducts-wrapper">
-			<h1>Add Product</h1>
+		<div className="container-sm addproducts-wrapper">
+			<h1 className="form-heading">Add Product</h1>
 			<div className="addproducts">
 				<form className="myForm" onSubmit={handleSubmit} autoComplete="off">
 					<TextField

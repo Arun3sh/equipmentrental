@@ -34,7 +34,7 @@ function Userdetail() {
 		const userOrder = user.orders;
 
 		return (
-			<div className="container-md user-detail">
+			<div className="container-sm user-detail">
 				<h5>{user.username}</h5>
 				<p>{user.email}</p>
 				<br />

@@ -20,9 +20,9 @@
 /* Product Card */
 
 .all-products-wrapper {
+	margin-top: 20px;
 	display: flex;
 	gap: 20px;
-	margin: 20px;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
@@ -71,30 +71,17 @@
 	align-items: center;
 }
 
-/* Add Product */
-.addproducts-wrapper {
-	margin: 16px;
+/* Add and Edit Product */
+.form-heading {
+	margin: 20px;
 }
-.myForm {
-	margin: 25px;
-	display: flex;
-	flex-direction: column;
-}
-.add-cancel {
-	margin: 25px;
-	display: flex;
-	justify-content: space-around;
-}
-
-/* Edit Product */
-.editproducts-wrapper {
-	margin: 16px;
-}
+.myForm,
 .myEditForm {
 	margin: 25px;
 	display: flex;
 	flex-direction: column;
 }
+.add-cancel,
 .update-cancel {
 	margin: 25px;
 	display: flex;
