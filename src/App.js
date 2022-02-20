@@ -72,11 +72,7 @@ function App() {
 						<Productpage />
 					</Route>
 
-					{login && (
-						<Route path="/checkout">
-							<Checkoutpage />
-						</Route>
-					)}
+					<Route path="/checkout">{login ? <Checkoutpage /> : <Redirect to="/products" />}</Route>
 					<Route path="/add-products">
 						<Addproduct />
 					</Route>
