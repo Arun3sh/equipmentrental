@@ -151,14 +151,15 @@ function Navitem() {
 					)}
 
 					{login && (
-						<Link
-							className="nav-link logout-link"
-							onClick={() =>
-								setLogin(false) & setCart(0) & setIsAdmin(false) & localStorage.clear()
-							}
-						>
-							Logout
-						</Link>
+						<Button variant="outlined" className="nav-link logout-link">
+							<Link
+								onClick={() =>
+									setLogin(false) & setCart(0) & setIsAdmin(false) & localStorage.clear()
+								}
+							>
+								Logout
+							</Link>
+						</Button>
 					)}
 
 					{!login && (
@@ -166,10 +167,18 @@ function Navitem() {
 							Sign up
 						</Button>
 					)}
-					{login && (
-						<Badge color="primary" badgeContent={cart}>
+
+					{login && !isAdmin && (
+						<Badge className="cart-icon" color="primary" badgeContent={cart}>
 							<ShoppingCartIcon onClick={() => history.push('/checkout')} />{' '}
 						</Badge>
+					)}
+
+					{/* userlist for admin */}
+					{isAdmin && (
+						<Link className="nav-link" to="/users">
+							View Users
+						</Link>
 					)}
 				</Navbar.Collapse>
 			</Container>
