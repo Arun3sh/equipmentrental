@@ -17,14 +17,28 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 	// To set the button display
 	const [display, setDisplay] = useState('none');
 
+	// This function is used to add items in cart and to checkout page
 	function toUserCart(value) {
-		let cartItem = { pname: name, quantity: value === 'add' ? cartValue + 1 : cartValue - 1 };
+		let cartItem = {
+			pid: id,
+			image: img,
+			cost: chargeperhour,
+			pname: name,
+			quantity: value === 'add' ? cartValue + 1 : cartValue - 1,
+		};
+
+		//If cart is empty will set the cart items
 		if (userCart.length === 0) {
 			setUserCart([cartItem]);
 		}
 
+		//If cart has any item already
 		if (userCart.length > 0) {
+			//Checking if there is anyother item other then the selected item
 			const itemExist = userCart.filter((item) => item.pname !== name);
+
+			// If the cart is not empty and no other product is there, which means user is
+			// selecting same item. Based on these conditions are set to set cart item
 
 			setUserCart(itemExist.length === 0 ? [cartItem] : [...itemExist, cartItem]);
 		}
