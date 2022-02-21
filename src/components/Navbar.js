@@ -45,9 +45,9 @@ function Navitem() {
 						)}
 
 						{!isAdmin && (
-							<HashLink className="nav-link" to="/#solution">
-								Solution
-							</HashLink>
+							<Link className="nav-link" to="/my-orders">
+								Orders
+							</Link>
 						)}
 
 						<Link className="nav-link" to="/products" onClick={() => setQuery('')}>

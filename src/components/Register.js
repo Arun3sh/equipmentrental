@@ -47,6 +47,7 @@ function Register() {
 			email: '',
 			password: '',
 			cpassword: '',
+			orders: [],
 		},
 		validationSchema: formValidationSchema,
 		onSubmit: () => register(),
