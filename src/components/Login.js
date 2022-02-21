@@ -36,6 +36,7 @@ function Login() {
 				history.push('/products');
 
 				localStorage.setItem('token', userToken.token);
+				localStorage.setItem('userId', userToken.id);
 				setLogin(true);
 
 				toast.success('Loged in');

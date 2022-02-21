@@ -2,6 +2,7 @@ import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import { useContext, useState } from 'react';
 import { authContext } from './../App';
+import { toast } from 'react-toastify';
 
 function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 	const { cart, setCart, userCart } = useContext(authContext);
@@ -30,6 +31,8 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 			setCartValue(cartValue + 1);
 
 			toUserCart('add');
+		} else {
+			toast.error('Max quantity added in cart');
 		}
 	};
 
@@ -42,7 +45,6 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 
 	// Styles for displaying add to cart button and the button group
 	const btnGrpStyle = {
-		// display: quantity === '0' ? 'none' : 'flex',
 		display: 'flex',
 	};
 
