@@ -5,17 +5,22 @@ import { useContext } from 'react';
 import { authContext } from './../App';
 import { useHistory } from 'react-router-dom';
 import { API } from './../assets/global';
+import { toast } from 'react-toastify';
 
 function Productcard({ id, name, chargeperhour, img, quantity }) {
 	const history = useHistory();
 
 	const { login, cart, setCart, isAdmin, userCart, setUserCart } = useContext(authContext);
 
+	let check = userCart.filter((item) => item.pname === name);
+
 	// To get the individual product quantity and to reduce quantity
-	const [cartValue, setCartValue] = useState(0);
+	const [cartValue, setCartValue] = useState(check.length !== 0 && login ? check[0].quantity : 0);
 
 	// To set the button display
-	const [display, setDisplay] = useState('none');
+	const [display, setDisplay] = useState(
+		check.length !== 0 && check[0].quantity !== 0 && login ? 'added' : 'none'
+	);
 
 	// This function is used to add items in cart and to checkout page
 	function toUserCart(value) {
@@ -25,6 +30,7 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 			cost: chargeperhour,
 			pname: name,
 			quantity: value === 'add' ? cartValue + 1 : cartValue - 1,
+			stock: quantity,
 		};
 
 		//If cart is empty will set the cart items
@@ -46,44 +52,59 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 
 	// Add function to add cart quantity and to change the display of add to cart button
 	const add = () => {
-		let value = 'add';
-		if (login) {
+		if (!login) {
+			history.push('/login');
+		}
+
+		if (check.length !== 0 && login) {
+			if (quantity - check[0].quantity) {
+				setCart(cart + 1);
+
+				setCartValue(cartValue + 1);
+
+				toUserCart('add');
+
+				setDisplay('added');
+			} else {
+				toast.error('Max quantity added in cart');
+			}
+		}
+
+		if (check.length === 0 && login) {
 			setCart(cart + 1);
 
 			setCartValue(cartValue + 1);
 
 			setDisplay('added');
-			toUserCart(value);
-		} else {
-			history.push('/login');
+			toUserCart('add');
 		}
 	};
 
 	// To add cart quantity and to increase one specific product quantity
 	const addCartValue = () => {
-		let value = 'add';
+		// console.log(check[0], userCart);
+		if (check.length !== 0) {
+			if (quantity - check[0].quantity) {
+				setCart(cart + 1);
 
-		if (quantity - cartValue) {
-			setCart(cart + 1);
-			setCartValue(cartValue + 1);
+				setCartValue(cartValue + 1);
 
-			toUserCart(value);
+				toUserCart('add');
+			} else {
+				toast.error('Max quantity added in cart');
+			}
 		}
 	};
 
 	// To remove cart quantity and also for one specific product quantity
 	const removeCartValue = () => {
-		let value = 'sub';
-		// If and elseif to make sure the quantity doesn't go neagtive
-		if (cartValue > 1) {
-			setCart(cart - 1);
-			setCartValue(cartValue - 1);
-			toUserCart(value);
-		} else if (cartValue === 1) {
+		setCart(cart - 1);
+		setCartValue(cartValue - 1);
+		toUserCart('sub');
+
+		// If to make sure the quantity doesn't go neagtive
+		if (cartValue === 1) {
 			setDisplay('none');
-			setCart(cart - 1);
-			setCartValue(cartValue - 1);
-			toUserCart(value);
 		}
 	};
 
@@ -119,8 +140,6 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 					</span>
 					<span className="price">₹{chargeperhour} per hour</span>
 				</Card.Text>
-
-				{/* <input type="date"></input> */}
 
 				<Button className="btn btn-primary to-cart" type="button" style={btnStyle} onClick={add}>
 					Add to Cart
