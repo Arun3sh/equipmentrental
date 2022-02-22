@@ -90,18 +90,44 @@
 
 /* Checkout page and Checkout card */
 .checkout-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
 	min-height: 40vh;
 }
 .checkoutpage-wrapper {
+	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	gap: 20px;
 }
 .checkoutcard {
+	justify-content: space-evenly;
 	width: 450px;
 	gap: 10px;
 	min-height: 200px;
+}
+.checkout-btn {
+	display: flex;
+	justify-content: space-around;
+}
+.checkout-content {
+	width: 299px;
+}
+.checkout-btngrp {
+	width: 40%;
+}
+.checkoutValue {
+	width: 33%;
+}
+.shoppingcart-image {
+	width: 151px !important;
+}
+.typo-heading {
+	font-size: 20px !important;
+	font-weight: 400;
 }
 
 /* Media Queries */
@@ -112,7 +138,15 @@
 		height: auto;
 	}
 	.checkoutcard {
+		/* min-width: 300px; */
+		width: 100%;
 		flex-direction: column;
 		align-items: center;
+	}
+	.checkout-content {
+		width: 100%;
+	}
+	.shoppingcart-image {
+		width: 230px !important;
 	}
 }
