@@ -4,6 +4,7 @@ import './style/productcard.css';
 import './style/login.css';
 import './style/register.css';
 import './style/user.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useState, createContext } from 'react';
 import Navitem from './components/Navbar';
@@ -19,7 +20,6 @@ import Userlist from './components/Userlist';
 import { Redirect } from 'react-router-dom';
 import Userdetail from './components/Userdetail';
 import Error from './components/Error';
-import 'react-toastify/dist/ReactToastify.css';
 import Forgotpassword from './components/Forgotpassword';
 
 export const authContext = createContext(null);
@@ -31,7 +31,6 @@ function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [isAdmin, setIsAdmin] = useState(false);
 	const [userCart, setUserCart] = useState([]);
-	// let userCart = [];
 
 	const location = useLocation();
 	const modes = {
@@ -71,7 +70,6 @@ function App() {
 					<Route path="/products">
 						<Productpage />
 					</Route>
-
 					<Route path="/checkout">{login ? <Checkoutpage /> : <Redirect to="/products" />}</Route>
 					<Route path="/add-products">
 						<Addproduct />
