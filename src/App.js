@@ -21,6 +21,7 @@ import { Redirect } from 'react-router-dom';
 import Userdetail from './components/Userdetail';
 import Error from './components/Error';
 import Forgotpassword from './components/Forgotpassword';
+import Confirmorder from './components/Confirmorder';
 
 export const authContext = createContext(null);
 
@@ -80,8 +81,8 @@ function App() {
 					<Route exact path="/users">
 						{isAdmin ? <Userlist /> : <Redirect to="/login" />}
 					</Route>
-					<Route path="/users/:id">{isAdmin ? <Userdetail /> : <Redirect to="/login" />}</Route>
-
+					<Route path="/users/:id">{isAdmin ? <Userdetail /> : <Redirect to="/" />}</Route>
+					<Route path="/confirm-order">{login ? <Confirmorder /> : <Redirect to="/login" />}</Route>
 					<Route path="/**">
 						<Error />
 					</Route>
