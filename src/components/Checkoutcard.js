@@ -48,6 +48,19 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 		display: 'flex',
 	};
 
+	// To set min date as today
+	let today = new Date();
+	let dd = today.getDate();
+	let mm = today.getMonth() + 1;
+	if (mm < 9) {
+		mm = '0' + mm;
+	}
+	if (dd < 9) {
+		dd = '0' + dd;
+	}
+	let yyyy = today.getFullYear();
+	let todayDate = yyyy + '-' + mm + '-' + dd;
+
 	if (!quantity) {
 		return '';
 	}
@@ -76,6 +89,8 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 						₹{cost * quantity} per hour
 					</Typography>
 				</CardContent>
+				<input type="date" min={todayDate} />
+
 				<Box sx={{ pl: 1, pb: 1 }} className="checkout-btn">
 					<ButtonGroup className="checkout-btngrp" style={btnGrpStyle}>
 						<Button
