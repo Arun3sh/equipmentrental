@@ -32,14 +32,12 @@ function Login() {
 				if (email === 'admin@real.com') {
 					setIsAdmin(true);
 				}
-
+				toast.success('Loged in');
 				history.push('/products');
 
 				localStorage.setItem('token', userToken.token);
 				localStorage.setItem('userId', userToken.id);
 				setLogin(true);
-
-				toast.success('Loged in');
 			})
 			.catch(() => {
 				toast.error('Invalid login attempt');

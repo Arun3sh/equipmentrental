@@ -135,24 +135,28 @@ function Confirmorder() {
 	return (
 		<div className="container-sm confirmOrder">
 			<div className="confirmOrder-wrapper">
-				<h5>Confirm details</h5>
-				<h5 className="user-name">{userInfo.username}</h5>
-				<p className="billing">Billing at</p>
-				<p className="user-address">
-					<span className="line-1">Door No, BuildingName, Area,</span>
-					<br />
-					<span className="line-2">District,</span>
-					<br />
-					<span className="line-3">State - Pincode</span>
-				</p>
-				<p className="order-list">
-					{userCart.map(({ pname, cost, quantity }) => (
-						<li>
-							{pname} x {quantity} = {quantity * cost}
-						</li>
-					))}
-				</p>
-				<Button variant="outlined" onClick={displayRazorpay}>
+				<h5 classname="confirm-heading">Confirm details</h5>
+				<div classname="billing-address">
+					<h5 className="user-name">{userInfo.username}</h5>
+					<p className="billing">Billing at</p>
+					<p className="user-address">
+						<span className="line-1">Door No, BuildingName, Area,</span>
+						<br />
+						<span className="line-2">District,</span>
+						<br />
+						<span className="line-3">State - Pincode</span>
+					</p>
+				</div>
+				<div className="confirmOrder-list">
+					<ul className="order-list">
+						{userCart.map(({ pname, cost, quantity }) => (
+							<li>
+								{pname} x {quantity} = {quantity * cost}
+							</li>
+						))}
+					</ul>
+				</div>
+				<Button className="confirmPay" variant="outlined" onClick={displayRazorpay}>
 					Pay {totalCost}
 				</Button>
 			</div>
