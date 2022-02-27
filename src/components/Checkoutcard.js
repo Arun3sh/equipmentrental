@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, TextField, Typography } from '@mui/material';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import { useContext, useState } from 'react';
 import { authContext } from './../App';
@@ -10,6 +10,25 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 	// To get the individual product quantity and to reduce quantity
 	const [cartValue, setCartValue] = useState(quantity);
 
+	// To set min date as today
+	let today = new Date();
+	let dd = today.getDate();
+	let mm = today.getMonth() + 1;
+
+	if (mm <= 9) {
+		mm = '0' + mm;
+	}
+	if (dd <= 9) {
+		dd = '0' + dd;
+	}
+
+	let yyyy = today.getFullYear();
+	let todayDate = yyyy + '-' + mm + '-' + dd;
+
+	// To set from and to date of rental
+	const [from, setFrom] = useState(todayDate);
+	const [to, setTo] = useState(todayDate);
+
 	// This function is used to add items in cart and to checkout page
 	function toUserCart(value) {
 		let cartItem = {
@@ -19,6 +38,8 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 			pname: pname,
 			quantity: value === 'add' ? cartValue + 1 : cartValue - 1,
 			stock: stock,
+			from: '',
+			to: '',
 		};
 
 		userCart[index] = cartItem;
@@ -48,19 +69,6 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 		display: 'flex',
 	};
 
-	// To set min date as today
-	let today = new Date();
-	let dd = today.getDate();
-	let mm = today.getMonth() + 1;
-	if (mm < 9) {
-		mm = '0' + mm;
-	}
-	if (dd < 9) {
-		dd = '0' + dd;
-	}
-	let yyyy = today.getFullYear();
-	let todayDate = yyyy + '-' + mm + '-' + dd;
-
 	if (!quantity) {
 		return '';
 	}
@@ -89,26 +97,44 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 						₹{cost * quantity} per hour
 					</Typography>
 				</CardContent>
-				<input type="date" min={todayDate} />
 
-				<Box sx={{ pl: 1, pb: 1 }} className="checkout-btn">
-					<ButtonGroup className="checkout-btngrp" style={btnGrpStyle}>
-						<Button
-							className="btn btn-primary checkoutValue"
-							type="button"
-							onClick={removeCartValue}
-						>
-							-
+				{/* All the select buttons */}
+				<div className="fromTo-form">
+					<TextField
+						type="date"
+						label="From"
+						inputProps={{ min: `${todayDate}`, defaultValue: `${todayDate}` }}
+						onChange={(event) => setFrom(event.target.value)}
+					/>
+					<TextField
+						type="date"
+						label="To"
+						inputProps={{ min: `${todayDate}`, defaultValue: `${todayDate}` }}
+						onChange={(event) => setTo(event.target.value)}
+					/>
+					<Box sx={{ pl: 1, pb: 1 }} className="checkout-btn">
+						<ButtonGroup className="checkout-btngrp" style={btnGrpStyle}>
+							<Button
+								className="btn btn-primary checkoutValue"
+								type="button"
+								onClick={removeCartValue}
+							>
+								-
+							</Button>
+							<span className="value">{cartValue}</span>
+							<Button
+								className="btn btn-primary checkoutValue"
+								type="button"
+								onClick={addCartValue}
+							>
+								+
+							</Button>
+						</ButtonGroup>
+						<Button className="rent-btn btn-primary" variant="outlined">
+							Rent now
 						</Button>
-						<span className="value">{cartValue}</span>
-						<Button className="btn btn-primary checkoutValue" type="button" onClick={addCartValue}>
-							+
-						</Button>
-					</ButtonGroup>
-					<Button className="rent-btn btn-primary" variant="outlined">
-						Rent now
-					</Button>
-				</Box>
+					</Box>
+				</div>
 			</Box>
 		</Card>
 	);
