@@ -124,10 +124,39 @@
 }
 .shoppingcart-image {
 	width: 151px !important;
+	height: fit-content;
 }
 .typo-heading {
 	font-size: 20px !important;
 	font-weight: 400;
+}
+.fromTo-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+/* Confirm Order */
+.confirmOrder-wrapper {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.confirm-heading {
+	text-align: center;
+}
+.billing-address {
+	margin-top: 10px;
+}
+.confirmOrder-list ul {
+	list-style: none;
+}
+.confirmOrder-list ul li {
+	margin-bottom: 10px;
+}
+.confirmPay {
+	width: fit-content;
 }
 
 /* Media Queries */
