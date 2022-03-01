@@ -89,6 +89,13 @@
 }
 
 /* Checkout page and Checkout card */
+.noItems-cart,
+.noOrder-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .checkout-container {
 	display: flex;
 	flex-direction: column;
@@ -158,6 +165,9 @@
 .confirmPay {
 	width: fit-content;
 }
+.finalOrder-item {
+	font-weight: 500;
+}
 
 /* Media Queries */
 /* For Small Devices */
@@ -177,5 +187,9 @@
 	}
 	.shoppingcart-image {
 		width: 230px !important;
+	}
+	.noItems-cart img,
+	.noOrder-wrapper img {
+		width: 300px;
 	}
 }
