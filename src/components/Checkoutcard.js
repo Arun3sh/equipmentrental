@@ -4,30 +4,16 @@ import { useContext, useState } from 'react';
 import { authContext } from './../App';
 import { toast } from 'react-toastify';
 
-function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
+function Checkoutcard({ pid, image, cost, pname, quantity, stock, from, to, index }) {
 	const { cart, setCart, userCart } = useContext(authContext);
 
+	console.log(userCart);
 	// To get the individual product quantity and to reduce quantity
 	const [cartValue, setCartValue] = useState(quantity);
 
-	// To set min date as today
-	let today = new Date();
-	let dd = today.getDate();
-	let mm = today.getMonth() + 1;
-
-	if (mm <= 9) {
-		mm = '0' + mm;
-	}
-	if (dd <= 9) {
-		dd = '0' + dd;
-	}
-
-	let yyyy = today.getFullYear();
-	let todayDate = yyyy + '-' + mm + '-' + dd;
-
 	// To set from and to date of rental
-	const [from, setFrom] = useState(todayDate);
-	const [to, setTo] = useState(todayDate);
+	const [newFrom, setNewFrom] = useState(from);
+	const [newTo, setNewTo] = useState(to);
 
 	// This function is used to add items in cart and to checkout page
 	function toUserCart(value) {
@@ -36,10 +22,10 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 			image: image,
 			cost: cost,
 			pname: pname,
-			quantity: value === 'add' ? cartValue + 1 : cartValue - 1,
+			quantity: value === 'date' ? cartValue : value === 'add' ? cartValue + 1 : cartValue - 1,
 			stock: stock,
-			from: '',
-			to: '',
+			from: newFrom,
+			to: newTo,
 		};
 
 		userCart[index] = cartItem;
@@ -103,14 +89,14 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 					<TextField
 						type="date"
 						label="From"
-						inputProps={{ min: `${todayDate}`, defaultValue: `${todayDate}` }}
-						onChange={(event) => setFrom(event.target.value)}
+						inputProps={{ min: `${from}`, defaultValue: `${from}` }}
+						onChange={(event) => setNewFrom(event.target.value) & toUserCart('date')}
 					/>
 					<TextField
 						type="date"
 						label="To"
-						inputProps={{ min: `${todayDate}`, defaultValue: `${todayDate}` }}
-						onChange={(event) => setTo(event.target.value)}
+						inputProps={{ min: `${from}`, defaultValue: `${from}` }}
+						onChange={(event) => setNewTo(event.target.value) & toUserCart('date')}
 					/>
 					<Box sx={{ pl: 1, pb: 1 }} className="checkout-btn">
 						<ButtonGroup className="checkout-btngrp" style={btnGrpStyle}>
@@ -130,9 +116,6 @@ function Checkoutcard({ pid, image, cost, pname, quantity, stock, index }) {
 								+
 							</Button>
 						</ButtonGroup>
-						<Button className="rent-btn btn-primary" variant="outlined">
-							Rent now
-						</Button>
 					</Box>
 				</div>
 			</Box>

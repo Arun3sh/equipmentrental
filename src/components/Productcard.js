@@ -22,6 +22,21 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 		check.length !== 0 && check[0].quantity !== 0 && login ? 'added' : 'none'
 	);
 
+	// To set min date as today
+	let today = new Date();
+	let dd = today.getDate();
+	let mm = today.getMonth() + 1;
+
+	if (mm <= 9) {
+		mm = '0' + mm;
+	}
+	if (dd <= 9) {
+		dd = '0' + dd;
+	}
+
+	let yyyy = today.getFullYear();
+	let todayDate = yyyy + '-' + mm + '-' + dd;
+
 	// This function is used to add items in cart and to checkout page
 	function toUserCart(value) {
 		let cartItem = {
@@ -31,6 +46,8 @@ function Productcard({ id, name, chargeperhour, img, quantity }) {
 			pname: name,
 			quantity: value === 'add' ? cartValue + 1 : cartValue - 1,
 			stock: quantity,
+			from: todayDate,
+			to: todayDate,
 		};
 
 		//If cart is empty will set the cart items
