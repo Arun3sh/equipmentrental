@@ -9,9 +9,26 @@
 	justify-content: space-around;
 	margin-bottom: 16px;
 }
-.user-detail {
-	height: 70vh;
+.user-detail,
+.myorder-container {
+	min-height: 70vh;
 	margin-top: 15px;
+}
+.userDetail-wrapper,
+.myOrder-wrapper {
+	padding: 15px;
+}
+.order-listed {
+	margin-top: 15px;
+}
+.order-listed ul {
+	list-style: circle;
+}
+.user-name,
+.user-email,
+.user-order {
+	display: grid;
+	grid-template-columns: 130px auto;
 }
 
 @media screen and (max-width: 425px) {
@@ -19,5 +36,18 @@
 		flex-direction: column;
 		align-items: normal;
 		padding: 10px;
+	}
+	.user-name,
+	.user-email,
+	.user-order {
+		display: flex;
+		align-items: center;
+	}
+	.user-name h5,
+	.user-email h5,
+	.user-order h5 {
+		font-size: 16px;
+		margin-bottom: 0px;
+		margin-right: 10px;
 	}
 }
