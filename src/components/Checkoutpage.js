@@ -11,7 +11,10 @@ function Checkoutpage() {
 	if (!userCart.length) {
 		return (
 			<div className="container-sm noItems-cart">
-				<h5>Please add items in Cart</h5>
+				<img
+					src="https://i.pinimg.com/originals/2e/ac/fa/2eacfa305d7715bdcd86bb4956209038.png"
+					aria-label="empty cart"
+				/>
 			</div>
 		);
 	}
@@ -19,7 +22,7 @@ function Checkoutpage() {
 	return (
 		<div className="container-sm checkout-container">
 			<div className="checkoutpage-wrapper">
-				{userCart.map(({ pid, image, cost, pname, quantity, stock }, index) => (
+				{userCart.map(({ pid, image, cost, pname, quantity, stock, from, to }, index) => (
 					<Checkoutcard
 						pid={pid}
 						image={image}
@@ -27,6 +30,8 @@ function Checkoutpage() {
 						pname={pname}
 						quantity={quantity}
 						stock={stock}
+						from={from}
+						to={to}
 						index={index}
 						key={index}
 					/>
@@ -34,11 +39,14 @@ function Checkoutpage() {
 			</div>
 			{userCart.filter((item) => item.quantity !== 0).length === 0 ? (
 				<div className="container-sm noItems-cart">
-					<h5>Please add items in Cart</h5>
+					<img
+						src="https://i.pinimg.com/originals/2e/ac/fa/2eacfa305d7715bdcd86bb4956209038.png"
+						aria-label="empty cart"
+					/>
 				</div>
-			) : userCart.filter((item) => item.quantity !== 0).length > 1 ? (
+			) : userCart.filter((item) => item.quantity !== 0).length > 0 ? (
 				<Button variant="outlined" onClick={() => history.push('/confirm-order')}>
-					Rent All
+					Rent Now
 				</Button>
 			) : (
 				''
