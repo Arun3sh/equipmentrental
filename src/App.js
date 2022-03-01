@@ -22,6 +22,7 @@ import Userdetail from './components/Userdetail';
 import Error from './components/Error';
 import Forgotpassword from './components/Forgotpassword';
 import Confirmorder from './components/Confirmorder';
+import Myorders from './components/Myorders';
 
 export const authContext = createContext(null);
 
@@ -71,7 +72,8 @@ function App() {
 					<Route path="/products">
 						<Productpage />
 					</Route>
-					<Route path="/checkout">{login ? <Checkoutpage /> : <Redirect to="/products" />}</Route>
+					<Route path="/checkout">{login ? <Checkoutpage /> : <Redirect to="/login" />}</Route>
+					<Route path="/my-orders">{login ? <Myorders /> : <Redirect to="/login" />}</Route>
 					<Route path="/add-products">
 						<Addproduct />
 					</Route>
