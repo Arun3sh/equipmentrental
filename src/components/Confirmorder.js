@@ -37,7 +37,18 @@ function Confirmorder() {
 	useEffect(getCost, []);
 	useEffect(getUserInfo, []);
 
-	console.log(userCart, userInfo);
+	function storeOrder(value) {
+		if (value.error === undefined) {
+			toast.success(value.msg);
+
+			setUserCart([]);
+			setCart(0);
+			history.push('/my-orders');
+		} else {
+			toast.error(value.error);
+			history.push('/checkout');
+		}
+	}
 
 	function loadScript(src) {
 		return new Promise((resolve) => {
@@ -72,9 +83,14 @@ function Confirmorder() {
 			})
 				.then((data) => data.json())
 				.then((d) => {
-					setAmount(d.amount);
-					setId(d.id);
-					setCurrency(d.currency);
+					if (d.error) {
+						toast.error('Connectivity issue with Razor pay. Please try later');
+						history.push('/products');
+					} else {
+						setAmount(d.amount);
+						setId(d.id);
+						setCurrency(d.currency);
+					}
 				});
 		};
 		await result();
@@ -93,10 +109,13 @@ function Confirmorder() {
 			// image: { logo },
 			order_id: id,
 			handler: async function (response) {
+				const newUserCart = [...userCart, id];
 				const data = {
 					orderCreationId: id,
 					razorpayPaymentId: response.razorpay_payment_id,
 					razorpayOrderId: response.razorpay_order_id,
+					userCart: newUserCart,
+					userId: `${localStorage.getItem('userId')}`,
 				};
 
 				const result = async () => {
@@ -110,7 +129,7 @@ function Confirmorder() {
 						},
 					})
 						.then((data) => data.json())
-						.then((v) => toast(v.msg) & setUserCart([]) & setCart(0));
+						.then((v) => storeOrder(v));
 				};
 
 				await result();
@@ -135,8 +154,8 @@ function Confirmorder() {
 	return (
 		<div className="container-sm confirmOrder">
 			<div className="confirmOrder-wrapper">
-				<h5 classname="confirm-heading">Confirm details</h5>
-				<div classname="billing-address">
+				<h5 className="confirm-heading">Confirm details</h5>
+				<div className="billing-address">
 					<h5 className="user-name">{userInfo.username}</h5>
 					<p className="billing">Billing at</p>
 					<p className="user-address">
@@ -149,11 +168,17 @@ function Confirmorder() {
 				</div>
 				<div className="confirmOrder-list">
 					<ul className="order-list">
-						{userCart.map(({ pname, cost, quantity }) => (
-							<li>
-								{pname} x {quantity} = {quantity * cost}
-							</li>
-						))}
+						{userCart
+							.filter((e) => e.quantity !== 0)
+							.map(({ pname, cost, quantity, from, to }) => (
+								<li>
+									<span className="finalOrder-item">
+										{pname} x {quantity} = {quantity * cost}
+									</span>{' '}
+									<br />
+									From: {from} - To: {to}
+								</li>
+							))}
 					</ul>
 				</div>
 				<Button className="confirmPay" variant="outlined" onClick={displayRazorpay}>
