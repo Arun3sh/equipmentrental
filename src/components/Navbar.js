@@ -32,12 +32,13 @@ function Navitem() {
 					</Link>
 				</Navbar.Brand>
 
+				<Link className="nav-link" to="/products" onClick={() => setQuery('')}>
+					Products
+				</Link>
+
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse className="hamburger-menu" id="basic-navbar-nav">
 					<Nav>
-						{/* <Link className="nav-link" to="/">
-							Home
-						</Link> */}
 						{!isAdmin && (
 							<HashLink className="nav-link" to="/#about">
 								About
@@ -50,9 +51,9 @@ function Navitem() {
 							</Link>
 						)}
 
-						<Link className="nav-link" to="/products" onClick={() => setQuery('')}>
+						{/* <Link className="nav-link" to="/products" onClick={() => setQuery('')}>
 							Products
-						</Link>
+						</Link> */}
 
 						{isAdmin && (
 							<Link className="nav-link" to="/add-products">
