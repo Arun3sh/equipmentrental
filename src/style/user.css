@@ -30,6 +30,11 @@
 	display: grid;
 	grid-template-columns: 130px auto;
 }
+.user-name h5,
+.user-email h5,
+.user-order h5 {
+	font-size: 24px !important;
+}
 
 @media screen and (max-width: 425px) {
 	.list-wrapper {
@@ -46,7 +51,7 @@
 	.user-name h5,
 	.user-email h5,
 	.user-order h5 {
-		font-size: 16px;
+		font-size: 16px !important;
 		margin-bottom: 0px;
 		margin-right: 10px;
 	}
