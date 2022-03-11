@@ -9,10 +9,10 @@ function Confirmorder() {
 	const { userCart, setUserCart, setCart } = useContext(authContext);
 	const [userInfo, setUserInfo] = useState({});
 	const [totalCost, setTotalCost] = useState(0);
-	const [amount, setAmount] = useState();
-	const [id, setId] = useState();
-	const [currency, setCurrency] = useState();
+
 	const history = useHistory();
+
+	let id;
 
 	const getCost = () => {
 		let mycost = 0;
@@ -22,6 +22,7 @@ function Confirmorder() {
 			setTotalCost(mycost);
 		});
 	};
+	useEffect(getCost, []);
 
 	const getUserInfo = async () => {
 		await fetch(`${API}/users/${localStorage.getItem('userId')}`, {
@@ -34,11 +35,14 @@ function Confirmorder() {
 			.then((data) => data.json())
 			.then((d) => setUserInfo(d));
 	};
-	useEffect(getCost, []);
 	useEffect(getUserInfo, []);
 
 	function storeOrder(value) {
 		if (value.error === undefined) {
+			if (value.emsg) {
+				toast.error(value.emsg);
+				history.push('/checkout');
+			}
 			toast.success(value.msg);
 
 			setUserCart([]);
@@ -75,7 +79,7 @@ function Confirmorder() {
 		const result = async () => {
 			await fetch(`${API}/payment/order`, {
 				method: 'POST',
-				body: JSON.stringify({ amount: totalCost, currency: 'INR' }),
+				body: JSON.stringify({ amount: totalCost }),
 				headers: {
 					'Content-type': 'application/json',
 					'x-auth-token': ` ${localStorage.getItem('token')}`,
@@ -85,11 +89,9 @@ function Confirmorder() {
 				.then((d) => {
 					if (d.error) {
 						toast.error('Connectivity issue with Razor pay. Please try later');
-						history.push('/products');
+						history.push('/checkout');
 					} else {
-						setAmount(d.amount);
-						setId(d.id);
-						setCurrency(d.currency);
+						id = d.id;
 					}
 				});
 		};
@@ -101,17 +103,22 @@ function Confirmorder() {
 		}
 
 		const options = {
-			key: 'rzp_test_4k3ZRpnA3HTowh', // Enter the Key ID generated from the Dashboard
-			amount: amount.toString(),
-			currency: currency,
+			key: 'rzp_test_4k3ZRpnA3HTowh',
+			amount: (totalCost * 100).toString(),
+			currency: 'INR',
 			name: 'REAL',
 			description: 'Test Transaction',
-			// image: { logo },
 			order_id: id,
+
+			prefill: {
+				name: userInfo.username,
+				email: userInfo.email,
+				contact: '9999999999',
+			},
 			handler: async function (response) {
 				const newUserCart = [...userCart, id];
 				const data = {
-					orderCreationId: id,
+					orderCreationId: response.razorpay_order_id,
 					razorpayPaymentId: response.razorpay_payment_id,
 					razorpayOrderId: response.razorpay_order_id,
 					userCart: newUserCart,
@@ -133,11 +140,6 @@ function Confirmorder() {
 				};
 
 				await result();
-			},
-			prefill: {
-				name: userInfo.username,
-				email: userInfo.email,
-				contact: '9999999999',
 			},
 			notes: {
 				address: 'user address comes here',
@@ -170,8 +172,8 @@ function Confirmorder() {
 					<ul className="order-list">
 						{userCart
 							.filter((e) => e.quantity !== 0)
-							.map(({ pname, cost, quantity, from, to }) => (
-								<li>
+							.map(({ pname, cost, quantity, from, to }, index) => (
+								<li key={index}>
 									<span className="finalOrder-item">
 										{pname} x {quantity} = {quantity * cost}
 									</span>{' '}

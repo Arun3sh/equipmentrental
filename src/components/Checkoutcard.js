@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 function Checkoutcard({ pid, image, cost, pname, quantity, stock, from, to, index }) {
 	const { cart, setCart, userCart } = useContext(authContext);
 
-	console.log(userCart);
 	// To get the individual product quantity and to reduce quantity
 	const [cartValue, setCartValue] = useState(quantity);
 
