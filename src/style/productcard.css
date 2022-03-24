@@ -34,8 +34,8 @@
 .shopping-card {
 	min-width: 250px;
 	max-width: 290px;
-	border: 1px solid transparent;
-	border-radius: 10px;
+	border: none;
+	border-radius: none;
 	box-shadow: 1px 1px 5px;
 }
 .shopping-image {
