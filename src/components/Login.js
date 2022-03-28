@@ -87,8 +87,8 @@ function Login() {
 					</div>
 					<div className="login-btn-container">
 						<div className="forgot-password">
-							<Link to="/forgot-password" aria-label="forgot password">
-								Forgot Password?
+							<Link to="/get-demo-id" aria-label="forgot password">
+								Get Demo User ID here
 							</Link>
 						</div>
 						<Button variant="outlined" onClick={checkUser}>

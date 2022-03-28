@@ -55,7 +55,7 @@ function App() {
 			<div className="App">
 				{location.pathname !== '/login' &&
 					location.pathname !== '/register' &&
-					location.pathname !== '/forgot-password' && <Navitem />}
+					location.pathname !== '/get-demo-id' && <Navitem />}
 				<Switch>
 					<Route exact path="/">
 						<Homepage />
@@ -63,7 +63,7 @@ function App() {
 					<Route path="/login">
 						<Login />
 					</Route>
-					<Route path="/forgot-password">
+					<Route path="/get-demo-id">
 						<Forgotpassword />
 					</Route>
 					<Route path="/register">
@@ -91,7 +91,7 @@ function App() {
 				</Switch>
 				{location.pathname !== '/login' &&
 					location.pathname !== '/register' &&
-					location.pathname !== '/forgot-password' && <Footer />}
+					location.pathname !== '/get-demo-id' && <Footer />}
 			</div>
 		</authContext.Provider>
 	);

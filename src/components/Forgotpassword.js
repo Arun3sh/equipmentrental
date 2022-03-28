@@ -1,23 +1,33 @@
 import { Button, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import { toast } from 'react-toastify';
 
 function Forgotpassword() {
+	const history = useHistory();
 	return (
 		<div className="container-sm forgotPassword">
 			<div className="logo-title">
 				<h2>REAL</h2>
 				<p>Rental Equipment in All Locations</p>
 			</div>
-			<div className="forgotpassword-wrapper">
-				<TextField id="email" name="email" label="User Email" variant="outlined" />
+			<div className="forgotpassword-wrapper" style={{ marginTop: '20px' }}>
+				{/* <TextField id="email" name="email" label="User Email" variant="outlined" />
 				<Button variant="outlined" onClick={() => toast.success('Password reset link sent')}>
 					Submit
-				</Button>
+				</Button> */}
+				<h6 style={{ fontSize: '24px' }}>User Email Password</h6>
+				<p>test@real.com - Test@123</p>
+				<br />
+				<br />
+				<h6 style={{ fontSize: '24px' }}>Admin Email Password</h6>
+				<p>admin@real.com - Admin@123</p>
+				<br />
+				<br />
 				<div className="user-already">
-					<Link to="/login" aria-label="login">
-						Remembered password now? Login
-					</Link>
+					<Button variant="outlined" onClick={() => history.goBack()}>
+						Go Back
+					</Button>
 				</div>
 			</div>
 		</div>
