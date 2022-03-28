@@ -34,7 +34,7 @@
 .shopping-card {
 	min-width: 250px;
 	max-width: 290px;
-	border: none;
+	border-radius: none;
 }
 .shopping-card:hover {
 	transform: scale(1.05);
